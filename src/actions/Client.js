@@ -6,7 +6,6 @@ import * as clientConst from '../constants/Client'
 import * as appConst from '../constants/App'
 import {API_ROOT} from  '../constants/Api'
 import {ajax} from 'jquery'
-import decode from 'jwt-decode'
 import {basicAuthHeader, isExpired, getErrorsFromResponse, languageHeader} from "../util"
 
 
@@ -31,11 +30,9 @@ function signIn(login, password) {
             success: [
                 response => {
                     let token = response.result[0];
-                    console.log(decode(token.accessToken));
                     dispatch({
                         type: clientConst.LOGIN_SUCCESS,
                         payload: {
-                            id: 0,
                             tokenType: token.tokenType,
                             accessToken: token.accessToken,
                             expiresIn: token.expiresIn,

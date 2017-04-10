@@ -2,12 +2,13 @@
  * Created by melalex on 4/10/17.
  */
 
-import {ajax} from "jquery";
+import {ajax} from 'jquery'
 import {API_ROOT} from  '../constants/Api'
 import {refresh} from './Client'
 import * as betConst from '../constants/Bet'
 import * as appConst from '../constants/App'
-import {bearerAuthHeader, getErrorsFromResponse} from "../util/index";
+import {bearerAuthHeader, getErrorsFromResponse} from '../util/index'
+import getContent from './getContent'
 
 
 function makeBet(bet) {
@@ -95,4 +96,8 @@ function getOdds(bet) {
     }
 }
 
-export {makeBet, getOdds}
+function getBets(page) {
+    getContent('api/bet', {page: page})
+}
+
+export {makeBet, getOdds, getBets}
