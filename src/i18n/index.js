@@ -6,8 +6,18 @@ import {loadTranslations, setLocale, syncTranslationWithStore} from 'react-redux
 import {LANGUAGE_KEY, DEFAULT_LANGUAGE} from '../constants/App'
 
 translationsObject = {
-    en: {},
-    ru: {}
+    en: {
+        auth: 'Sign in',
+        login: 'Login',
+        password: 'Password',
+        submit: 'Submit'
+    },
+    ru: {
+        auth: 'Вход в систему',
+        login: 'Логин',
+        password: 'Пароль',
+        submit: 'Подтвердить'
+    }
 };
 
 export default function (store) {

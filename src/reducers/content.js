@@ -13,7 +13,7 @@ const initialState = {
     fetching: false,
 };
 
-export default function app(state = initialState, action) {
+export default function content(state = initialState, action) {
     switch (action.type) {
         case actionConst.GET_REQUEST:
             Progress.show();

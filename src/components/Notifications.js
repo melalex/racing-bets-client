@@ -3,14 +3,32 @@
  */
 
 import React, {PropTypes, Component} from 'react'
+import {UncontrolledAlert} from "reactstrap";
 
 export default class Notifications extends Component {
     render() {
-
+        let {errors, info} = this.props;
+        return (
+            <div>
+                {
+                    errors && errors.length > 0
+                        ?
+                        errors.map((e, i) =>
+                            <UncontrolledAlert key={i} color="danger">
+                                <strong>{e.message}</strong>
+                            </UncontrolledAlert>
+                        )
+                        : null
+                }
+                {
+                    info ? (<UncontrolledAlert color="success"><strong>{info}</strong></UncontrolledAlert>) : null
+                }
+            </div>
+        )
     }
 }
 
 Notifications.PropTypes = {
-    errors: PropTypes.array.isRequired,
-    info: PropTypes.string.isRequired
+    errors: PropTypes.array,
+    info: PropTypes.string
 };

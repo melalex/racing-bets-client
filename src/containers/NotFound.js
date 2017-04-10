@@ -6,6 +6,7 @@ import React from 'react';
 import {Link} from "react-router";
 
 export default class NotFound extends React.Component {
+    // TODO: i18n this
     render() {
         return (
             <div className="nb-error">

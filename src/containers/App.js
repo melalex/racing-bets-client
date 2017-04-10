@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Footer from '../components/Footer'
-import Navbar from './Navbar'
+import Header from './Header'
 import Notifications from '../components/Notifications'
 import Sidebar from '../components/Sidebar'
 import Progress from 'react-progress-2'
@@ -10,7 +10,7 @@ class App extends Component {
     render() {
         return (
             <div className="wrapper">
-                <Navbar/>
+                <Header/>
                 <Progress.Component/>
                 <Sidebar/>
 

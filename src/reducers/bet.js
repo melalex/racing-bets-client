@@ -11,7 +11,7 @@ const initialState = {
     fetching: false,
 };
 
-export default function app(state = initialState, action) {
+export default function bet(state = initialState, action) {
     switch (action.type) {
         case actionConst.MAKE_BET_REQUEST:
         case actionConst.GET_ODS_REQUEST:

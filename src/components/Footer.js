@@ -4,8 +4,10 @@
 
 import React from 'react'
 
-export default class Footer extends React.Component {
-    render() {
-
-    }
-}
+export default (
+    <footer className="footer">
+        <div className="container">
+            <span className="text-muted">&copy; Melashchenko, 2017</span>
+        </div>
+    </footer>
+)

@@ -6,6 +6,7 @@ import * as clientConst from '../constants/Client'
 import * as appConst from '../constants/App'
 import {API_ROOT} from  '../constants/Api'
 import {ajax} from 'jquery'
+import {push} from 'react-router-redux';
 import {basicAuthHeader, isExpired, getErrorsFromResponse, languageHeader} from "../util"
 
 
@@ -39,6 +40,7 @@ function signIn(login, password) {
                             refreshToken: token.refreshToken,
                         }
                     });
+                    dispatch(push('/'));
                 }
             ],
             error: [
@@ -80,6 +82,7 @@ function signUp(account) {
                             refreshToken: token.refreshToken,
                         }
                     });
+                    dispatch(push('/'));
                 }
             ],
             error: [
