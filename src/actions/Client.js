@@ -48,6 +48,10 @@ function signIn(login, password) {
                     let errors = getErrorsFromResponse(response);
                     dispatch({
                         type: clientConst.LOGIN_FAILED,
+                    });
+
+                    dispatch({
+                        type: appConst.ERROR_MESSAGE,
                         payload: errors
                     })
                 }
@@ -90,6 +94,10 @@ function signUp(account) {
                     let errors = getErrorsFromResponse(response);
                     dispatch({
                         type: clientConst.REGISTER_FAILED,
+                    });
+
+                    dispatch({
+                        type: appConst.ERROR_MESSAGE,
                         payload: errors
                     })
                 }
@@ -141,7 +149,6 @@ function refresh(next) {
                         let errors = getErrorsFromResponse(response);
                         dispatch({
                             type: clientConst.REFRESH_FAILED,
-                            payload: []
                         });
 
                         dispatch({

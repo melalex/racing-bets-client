@@ -30,11 +30,11 @@ export default class Login extends Component {
                             <AvForm onValidSubmit={this.signIn}>
                                 <AvGroup>
                                     <Label for="login">{I18n.t('login')}</Label>
-                                    <AvField name="login" required minLength="1" maxLength="45"/>
+                                    <AvField name="login" required minLength="4" maxLength="45"/>
                                 </AvGroup>
                                 <AvGroup>
                                     <Label for="password">{I18n.t('password')}</Label>
-                                    <AvField type="password" name="password" required minLength="1" maxLength="45"/>
+                                    <AvField type="password" name="password" required minLength="4" maxLength="45"/>
                                 </AvGroup>
                                 <Button color="primary" size="lg" block>{I18n.t('submit')}</Button>
                             </AvForm>

@@ -13,7 +13,6 @@ const nonAuth = {
     isAuthenticated: false,
     fetching: false,
     login: '',
-    errors: []
 };
 
 const initialState = JSON.parse(window.localStorage.getItem(actionConst.APP_USER_KEY)) || nonAuth;
@@ -23,11 +22,11 @@ export default function client(state = initialState, action) {
         case actionConst.REGISTER_REQUEST:
         case actionConst.LOGIN_REQUEST:
             Progress.show();
-            return {...state, fetching: true, errors: [], login: action.payload.login};
+            return {...state, fetching: true, login: action.payload.login};
 
         case actionConst.REFRESH_REQUEST:
             Progress.show();
-            return {...state, fetching: true, errors: []};
+            return {...state, fetching: true};
 
         case actionConst.REGISTER_SUCCESS:
         case actionConst.REFRESH_SUCCESS:
@@ -51,7 +50,7 @@ export default function client(state = initialState, action) {
         case actionConst.LOGIN_FAILED:
             Progress.hide();
             window.localStorage.removeItem(actionConst.APP_USER_KEY);
-            return {...nonAuth, errors: action.payload};
+            return nonAuth;
 
         case actionConst.LOGOUT:
             window.localStorage.removeItem(actionConst.APP_USER_KEY);
