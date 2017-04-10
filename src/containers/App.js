@@ -1,19 +1,36 @@
-import React, { Component } from 'react';
-import '../styles/App.css';
+import React, {Component} from 'react';
+import Footer from '../components/Footer'
+import Navbar from './Navbar'
+import Notifications from '../components/Notifications'
+import Sidebar from '../components/Sidebar'
+import Progress from 'react-progress-2'
+import {connect} from "react-redux";
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div className="wrapper">
+                <Navbar/>
+                <Progress.Component/>
+                <Sidebar/>
+
+                <div className="container big-margin-top content">
+                    <Notifications errors={this.props.errors} info={this.props.info}/>
+
+                    {this.props.children}
+                </div>
+
+                <Footer/>
+            </div>
+        );
+    }
 }
 
-export default App;
+function mapStateToProps(state) {
+    return {
+        errors: state.app.errors,
+        info: state.app.info,
+    }
+}
+
+export default connect(mapStateToProps)(App)

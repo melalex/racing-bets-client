@@ -1,1 +1,80 @@
+html {
+    position: relative !important;
+    min-height: 100% !important;
+}
 
+body {
+    height: 100% !important;
+    margin-bottom: 60px;
+}
+
+.wrapper {
+    height: 100% !important;
+    width: 100%;
+}
+
+.content {
+    height: 100% !important;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background-color: #f5f5f5;
+}
+
+.small-margin-top {
+    margin-top: 10px;
+}
+
+.big-margin-top {
+    margin-top: 3%;
+}
+
+.big-margin-bot {
+    margin-bottom: 10% !important;
+}
+
+.table-margin {
+    margin-top: 2%;
+    margin-bottom: 3%;
+}
+
+.elem-margin {
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.loader-60devs .loader-60devs-progress {
+    background: #428bca;
+}
+
+.no-result-text {
+    color: lightgrey;
+    margin-top: 10%;
+}
+
+.nb-error {
+    margin: 0 auto;
+    text-align: center;
+    max-width: 480px;
+    padding: 60px 30px;
+}
+
+.nb-error .error-code {
+    color: #2d353c;
+    font-size: 96px;
+    line-height: 100px;
+}
+
+.nb-error .error-desc {
+    font-size: 12px;
+    color: #647788;
+}
+
+.nb-error .input-group {
+    margin: 30px 0;
+}
