@@ -8,12 +8,22 @@ function fullName(person) {
     return (person === undefined) ? null : person.firstName + ' ' + person.lastName;
 }
 
-function basicAuthHeader(login, password) {
-    return {'Authorization': 'Basic ' + window.btoa(login + ':' + password)};
+function basicAuthHeader(login, password, language) {
+    return {
+        'Authorization': 'Basic ' + window.btoa(login + ':' + password),
+        'Accept-Language' : language
+    };
 }
 
 function bearerAuthHeader(getState) {
-    return {'Authorization': 'Bearer ' + getState().client.accessToken};
+    return {
+        'Authorization': 'Bearer ' + getState().client.accessToken,
+        'Accept-Language' : getState().app.language
+    };
+}
+
+function languageHeader(getState) {
+    return {'Accept-Language' : getState().app.language};
 }
 
 function nowSeconds() {
@@ -57,6 +67,7 @@ export {
     fullName,
     basicAuthHeader,
     bearerAuthHeader,
+    languageHeader,
     nowSeconds,
     isExpired,
     dateFromTimestamp,

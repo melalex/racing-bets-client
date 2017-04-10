@@ -13,10 +13,10 @@ const initialState = {
 export default function app(state = initialState, action) {
     switch (action.type) {
         case actionConst.INFO_MESSAGE:
-            return {...state, info: action.payload};
+            return {...state, info: action.payload, errors: []};
 
         case actionConst.ERROR_MESSAGE:
-            return {...state, errors: action.payload};
+            return {...state, errors: action.payload, info: ''};
 
         case actionConst.CLEAN_MESSAGE:
             return {...state, info: '', errors: []};

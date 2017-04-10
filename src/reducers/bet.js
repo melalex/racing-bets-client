@@ -6,7 +6,7 @@ import * as actionConst from '../constants/Bet'
 import Progress from "react-progress-2";
 
 const initialState = {
-    odds: 0,
+    odds: {},
     balance: 0,
     fetching: false,
 };

@@ -6,6 +6,7 @@ import * as actionConst from '../constants/Client'
 import Progress from "react-progress-2";
 
 const nonAuth = {
+    id: 0,
     tokenType: 'jwt',
     accessToken: '',
     expiresIn: 0,
@@ -38,6 +39,7 @@ export default function client(state = initialState, action) {
                 fetching: false,
                 isAuthenticated: true,
                 errors: [],
+                id: action.payload.id,
                 tokenType: action.payload.tokenType,
                 accessToken: action.payload.accessToken,
                 expiresIn: action.payload.expiresIn,
