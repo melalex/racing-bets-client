@@ -9,9 +9,12 @@ import configureStore from './store'
 import {Router, browserHistory} from 'react-router'
 import routes from "./routes"
 import {syncHistoryWithStore} from 'react-router-redux'
+import syncI18n from './i18n'
 
 const store = configureStore(browserHistory);
 const history = syncHistoryWithStore(browserHistory, store);
+
+syncI18n(store);
 
 ReactDom.render(
     <Provider store={store}>

@@ -2,6 +2,7 @@
  * Created by melalex on 4/10/17.
  */
 
+import {setLocale} from 'react-redux-i18n';
 import * as actionConst from '../constants/App'
 
 function error(error) {
@@ -25,11 +26,14 @@ function clean() {
 }
 
 function changeLanguage(language) {
-    return {
-        type: actionConst.CHANGE_LANGUAGE,
-        payload: language
+    return dispatch => {
+        dispatch({
+            type: actionConst.CHANGE_LANGUAGE,
+            payload: language
+        });
+
+        dispatch(setLocale(language));
     }
 }
 
 export {error, info, clean, changeLanguage}
-
