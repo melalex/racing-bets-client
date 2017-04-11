@@ -4,14 +4,16 @@ import Header from './Header'
 import Notifications from '../components/Notifications'
 import Progress from 'react-progress-2'
 import {connect} from "react-redux";
+import Sidebar from '../components/Sidebar'
 
 class App extends Component {
     render() {
         return (
             <div className="wrapper">
                 <Header/>
-                {this.props.language}
                 <Progress.Component/>
+
+                <Sidebar/>
 
                 <div className="container big-margin-top content">
                     <Notifications errors={this.props.errors} info={this.props.info}/>
@@ -29,6 +31,7 @@ function mapStateToProps(state) {
     return {
         errors: state.app.errors,
         info: state.app.info,
+        language: state.app.language
     }
 }
 

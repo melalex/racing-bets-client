@@ -3,7 +3,7 @@
  */
 
 import React, {PropTypes, Component} from 'react'
-import {Col, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, Nav, NavItem} from "reactstrap";
+import {Col, DropdownItem, DropdownMenu, DropdownToggle, NavDropdown} from "reactstrap";
 
 export default class LanguagePicker extends Component {
     constructor(props) {
@@ -25,7 +25,7 @@ export default class LanguagePicker extends Component {
         let {language, changeLanguage} = this.props;
         return (
             <Col md={{size: 1}}>
-                <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+                <NavDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
                     <DropdownToggle caret>
                         {language}
                     </DropdownToggle>
@@ -33,7 +33,7 @@ export default class LanguagePicker extends Component {
                         <DropdownItem onClick={() => changeLanguage('en')}>EN</DropdownItem>
                         <DropdownItem onClick={() => changeLanguage('ru')}>RU</DropdownItem>
                     </DropdownMenu>
-                </Dropdown>
+                </NavDropdown>
             </Col>
         )
     }

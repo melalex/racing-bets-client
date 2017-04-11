@@ -3,7 +3,7 @@
  */
 
 import React from 'react'
-import {Button, Col, Container, Jumbotron, Label, Row} from "reactstrap"
+import {Button, Col, Container, Label, Row} from "reactstrap"
 import {AvField, AvForm, AvGroup} from "availity-reactstrap-validation"
 import {I18n} from 'react-redux-i18n'
 import {bindActionCreators} from "redux";

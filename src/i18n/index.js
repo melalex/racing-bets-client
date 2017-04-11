@@ -17,7 +17,9 @@ const translationsObject = {
         password: 'Password',
         confirmPassword: 'Confirm password',
         submit: 'Submit',
-        confirmPasswordError: 'Password and confirm password should be same'
+        confirmPasswordError: 'Password and confirm password should be same',
+        scheduled: 'Scheduled races',
+        finished: 'History'
     },
     ru: {
         auth: 'Вход',
@@ -30,8 +32,9 @@ const translationsObject = {
         password: 'Пароль',
         confirmPassword: 'Подтверждение пароля',
         submit: 'Подтвердить',
-        confirmPasswordError: 'Пароль и его подтверждение должны быть одинаковыми'
-
+        confirmPasswordError: 'Пароль и его подтверждение должны быть одинаковыми',
+        scheduled: 'Запланированые заезды',
+        finished: 'История'
     }
 };
 

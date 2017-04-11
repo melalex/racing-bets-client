@@ -26,3 +26,5 @@ src/
 !/.gitignore
 !/package.json
 !/README.md
+!/src/styles/App.css
+!/src/containers/Register.js

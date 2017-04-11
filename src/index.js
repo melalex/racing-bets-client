@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'react-progress-2/main.css'
 import '../src/styles/App.css'
 import '../src/styles/DateTime.css'
+import '../src/styles/Sidebar.css'
 import configureStore from './store'
 import {Router, browserHistory} from 'react-router'
 import routes from "./routes"
