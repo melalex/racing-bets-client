@@ -25,7 +25,7 @@ class Login extends React.Component {
             <Container>
                 <Row>
                     <Col sm={{size: 6, push: 2, pull: 2, offset: 1}}>
-                        <Jumbotron>
+                        <div className="auth-form">
                             <h3 className="text-center small-margin-top">{I18n.t('auth')}</h3>
                             <AvForm onValidSubmit={this.signIn}>
                                 <AvGroup>
@@ -38,7 +38,7 @@ class Login extends React.Component {
                                 </AvGroup>
                                 <Button color="primary" size="lg" block>{I18n.t('submit')}</Button>
                             </AvForm>
-                        </Jumbotron>
+                        </div>
                     </Col>
                 </Row>
             </Container>

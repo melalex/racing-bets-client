@@ -24,21 +24,17 @@ export default class LanguagePicker extends Component {
     render() {
         let {language, changeLanguage} = this.props;
         return (
-            <Nav navbar>
-                <NavItem>
-                    <Col md={{size: 1}}>
-                        <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-                            <DropdownToggle caret>
-                                {language}
-                            </DropdownToggle>
-                            <DropdownMenu>
-                                <DropdownItem onClick={() => changeLanguage('en')}>EN</DropdownItem>
-                                <DropdownItem onClick={() => changeLanguage('ru')}>RU</DropdownItem>
-                            </DropdownMenu>
-                        </Dropdown>
-                    </Col>
-                </NavItem>
-            </Nav>
+            <Col md={{size: 1}}>
+                <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+                    <DropdownToggle caret>
+                        {language}
+                    </DropdownToggle>
+                    <DropdownMenu>
+                        <DropdownItem onClick={() => changeLanguage('en')}>EN</DropdownItem>
+                        <DropdownItem onClick={() => changeLanguage('ru')}>RU</DropdownItem>
+                    </DropdownMenu>
+                </Dropdown>
+            </Col>
         )
     }
 }
