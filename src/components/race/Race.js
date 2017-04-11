@@ -3,26 +3,32 @@
  */
 
 import React, {PropTypes, Component} from 'react'
+import RaceInf from './RaceInf'
+import ParticipantTable from './ParticipantTable'
+import RaceHeader from './RaceHeader'
 
 export default class Race extends Component {
+    constructor(props) {
+        super(props);
 
+        this.searchByRacecourse = this.searchByRacecourse.bind(this);
+    }
+
+    searchByRacecourse(e, id) {
+        e.preventDefault();
+        this.props.onFilter({racecourse: id});
+    }
 
     render() {
-        let {id, raceId, betSize, betType, betStatus, participants} = this.props.entity;
+        let {entity, onGetByParticipant} = this.props;
+        let {name, racecourse, start, participants} = entity;
+
         return (
-            <tr>
-                <td>{id}</td>
-                <td>{raceId}</td>
-                <td>{betType}</td>
-                <td>{betStatus}</td>
-                <td>{betSize}</td>
-                <td>
-                    {'1: ' + participants[1].horse ? participants[1].horse.name : 'N/A'} <br/>
-                    {'2: ' + participants[2].horse ? participants[2].horse.name : 'N/A'} <br/>
-                    {'3: ' + participants[3].horse ? participants[3].horse.name : 'N/A'} <br/>
-                    {'4: ' + participants[4].horse ? participants[4].horse.name : 'N/A'} <br/>
-                </td>
-            </tr>
+            <div className="elem-margin">
+                <RaceHeader racecourse={racecourse} name={name} start={start}/>
+                <RaceInf entity={entity}/>
+                <ParticipantTable participants={participants} onGetByParticipant={onGetByParticipant}/>
+            </div>
         );
     }
 }
@@ -52,5 +58,6 @@ Race.propTypes = {
         participants: PropTypes.array,
         prizes: PropTypes.object
     }).isRequired,
-    onGetByParticipant: PropTypes.func.isRequired
+    onGetByParticipant: PropTypes.func.isRequired,
+    onFilter: PropTypes.func.isRequired
 };

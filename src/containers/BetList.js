@@ -7,9 +7,9 @@ import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import {getBets} from "../actions/Bet";
 import {Table} from "reactstrap";
-import Pager from "../components/Pager";
+import Pager from "../components/interface/Pager";
 import {I18n} from 'react-redux-i18n'
-import Bet from "../components/Bet";
+import Bet from "../components/bet/Bet";
 
 class RaceList extends React.Component {
 

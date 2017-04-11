@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import Footer from '../components/Footer'
+import Footer from '../components/interface/Footer'
 import Header from './Header'
-import Notifications from '../components/Notifications'
+import Notifications from '../components/interface/Notifications'
 import Progress from 'react-progress-2'
 import {connect} from "react-redux";
-import Sidebar from '../components/Sidebar'
+import Sidebar from '../components/interface/Sidebar'
 import {bindActionCreators} from "redux";
 import {setRaceStatus} from '../actions/Race'
 

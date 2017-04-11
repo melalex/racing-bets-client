@@ -7,9 +7,9 @@ import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import {getRaces} from "../actions/Race";
 import {I18n} from 'react-redux-i18n'
-import Pager from "../components/Pager";
-import Race from "../components/Race";
-import Filter from "../components/Filter";
+import Pager from "../components/interface/Pager";
+import Race from "../components/race/Race";
+import Filter from "../components/race/Filter";
 import {FINISHED} from "../constants/Race"
 
 class RaceList extends React.Component {
@@ -48,8 +48,10 @@ class RaceList extends React.Component {
 
         console.log(this.props);
 
-        let rows = content.map((entity, i) => <Race key={i} entity={entity}
-                                                    onGetByParticipant={this.onGetByParticipant}/>);
+        let rows = content.map((entity, i) => <Race key={i}
+                                                    entity={entity}
+                                                    onGetByParticipant={this.onGetByParticipant}
+                                                    onFilter={this.onFilter}/>);
         return (
             <div className="table-margin">
                 <Filter params={params} onFilter={this.onFilter}/>

@@ -8,8 +8,8 @@ import {connect} from "react-redux";
 import {signOut} from '../actions/Client'
 import {Button, Col, Nav, NavItem, Row,} from "reactstrap";
 import {I18n} from 'react-redux-i18n'
-import {} from '../components/LanguagePicker'
-import LanguagePicker from "../components/LanguagePicker";
+import {} from '../components/interface/LanguagePicker'
+import LanguagePicker from "../components/interface/LanguagePicker";
 import {changeLanguage} from "../actions/App";
 
 class Credentials extends React.Component {

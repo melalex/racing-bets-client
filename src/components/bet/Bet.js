@@ -4,6 +4,7 @@
 
 
 import React, {PropTypes, Component} from 'react'
+import {I18n} from 'react-redux-i18n'
 
 export default class Bet extends Component {
 
@@ -18,10 +19,10 @@ render() {
                 <td>{betStatus}</td>
                 <td>{betSize}</td>
                 <td>
-                    {'1: ' + participants[1].horse ? participants[1].horse.name : 'N/A'} <br/>
-                    {'2: ' + participants[2].horse ? participants[2].horse.name : 'N/A'} <br/>
-                    {'3: ' + participants[3].horse ? participants[3].horse.name : 'N/A'} <br/>
-                    {'4: ' + participants[4].horse ? participants[4].horse.name : 'N/A'} <br/>
+                    {'1: ' + participants[1].horse ? participants[1].horse.name : I18n.t('na')} <br/>
+                    {'2: ' + participants[2].horse ? participants[2].horse.name : I18n.t('na')} <br/>
+                    {'3: ' + participants[3].horse ? participants[3].horse.name : I18n.t('na')} <br/>
+                    {'4: ' + participants[4].horse ? participants[4].horse.name : I18n.t('na')} <br/>
                 </td>
             </tr>
         );
@@ -36,6 +37,6 @@ Bet.propTypes = {
         betSize: PropTypes.number.isRequired,
         betType: PropTypes.string.isRequired,
         betStatus: PropTypes.string.isRequired,
-        participants: PropTypes.object.isRequired
+        participants: PropTypes.array.isRequired
     }).isRequired,
 };

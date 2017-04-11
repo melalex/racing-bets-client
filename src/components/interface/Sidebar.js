@@ -6,7 +6,7 @@ import BurgerMenu from './Menu'
 import React, {PropTypes, Component} from 'react'
 import {I18n} from 'react-redux-i18n'
 import {Link} from "react-router";
-import {SCHEDULED, FINISHED} from "../constants/Race"
+import {SCHEDULED, FINISHED} from "../../constants/Race"
 
 export default class Sidebar extends Component {
     constructor(props) {
