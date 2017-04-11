@@ -25,10 +25,10 @@ export default class Sidebar extends Component {
             <BurgerMenu id="sidebar" className="sidebar-wrapper">
                 <ul className="sidebar-nav">
                     <li>
-                        <a onClick={e => this.onStatusChange(SCHEDULED)}>{I18n.t('scheduled')}</a>
+                        <a href="#" onClick={e => this.onStatusChange(e, SCHEDULED)}>{I18n.t('scheduled')}</a>
                     </li>
                     <li>
-                        <a onClick={e => this.onStatusChange(FINISHED)}>{I18n.t('finished')}</a>
+                        <a href="#" onClick={e => this.onStatusChange(e, FINISHED)}>{I18n.t('finished')}</a>
                     </li>
 
                     {

@@ -22,17 +22,17 @@ class RaceList extends React.Component {
     }
 
     componentDidMount() {
-        this.props.getRaces({page: 1, raceStatus: this.props.raceStatus})
+        this.props.getRaces({page: 1, status: this.props.raceStatus})
     }
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.raceStatus !== this.props.raceStatus) {
-            this.props.getRaces({page: 1, raceStatus: this.props.raceStatus})
+            this.props.getRaces({page: 1, status: this.props.raceStatus})
         }
     }
 
     onFilter(params) {
-        this.props.getRaces({...params, page: 1, raceStatus: this.props.raceStatus});
+        this.props.getRaces({...params, page: 1, status: this.props.raceStatus});
     }
 
     onGetPage(page) {
@@ -40,13 +40,11 @@ class RaceList extends React.Component {
     }
 
     onGetByParticipant(params) {
-        this.props.getRaces({...params, page: 1, raceStatus: FINISHED})
+        this.props.getRaces({...params, page: 1, status: FINISHED})
     }
 
     render() {
         let {content, params, limit, count} = this.props;
-
-        console.log(this.props);
 
         let rows = content.map((entity, i) => <Race key={i}
                                                     entity={entity}
@@ -79,6 +77,7 @@ function mapStateToProps(state) {
         limit: state.content.limit,
         fetching: state.content.fetching,
         raceStatus: state.app.raceStatus,
+        language: state.app.language,
     }
 }
 

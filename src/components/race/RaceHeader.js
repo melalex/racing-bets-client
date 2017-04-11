@@ -22,8 +22,8 @@ export default class RaceHeader extends Component {
 
         return (
             <div>
-                <h1>{dateTimeFromTimestamp(start) + ': ' + name + ' (' +
-                <a onClick={e => this.searchByRacecourse(e, racecourse.id)}>racecourse.name</a> + ')'}
+                <h1>{dateTimeFromTimestamp(start) + ': ' + name}
+                    (<a onClick={e => this.searchByRacecourse(e, racecourse.id)} href="#">{racecourse.name}</a>)
                 </h1>
                 <hr/>
             </div>
@@ -42,4 +42,5 @@ RaceHeader.propTypes = {
     }).isRequired,
     name: PropTypes.string.isRequired,
     start: PropTypes.number.isRequired,
+    onFilter: PropTypes.func.isRequired
 };

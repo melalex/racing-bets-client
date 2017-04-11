@@ -8,24 +8,13 @@ import ParticipantTable from './ParticipantTable'
 import RaceHeader from './RaceHeader'
 
 export default class Race extends Component {
-    constructor(props) {
-        super(props);
-
-        this.searchByRacecourse = this.searchByRacecourse.bind(this);
-    }
-
-    searchByRacecourse(e, id) {
-        e.preventDefault();
-        this.props.onFilter({racecourse: id});
-    }
-
     render() {
-        let {entity, onGetByParticipant} = this.props;
+        let {entity, onGetByParticipant, onFilter} = this.props;
         let {name, racecourse, start, participants} = entity;
 
         return (
-            <div className="elem-margin">
-                <RaceHeader racecourse={racecourse} name={name} start={start}/>
+            <div className="elem-margin race-view">
+                <RaceHeader racecourse={racecourse} name={name} start={start} onFilter={onFilter}/>
                 <RaceInf entity={entity}/>
                 <ParticipantTable participants={participants} onGetByParticipant={onGetByParticipant}/>
             </div>

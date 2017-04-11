@@ -21,21 +21,21 @@ export default class ParticipantTable extends Component {
                 <h1 className="text-center no-result-text">{I18n.t('noResult')}</h1>
                 :
                 <Table hover>
-                    <thead>
+                    <thead className="thead-inverse">
                     <tr>
-                        <td>{I18n.t('numberPlace')}</td>
-                        <td>{I18n.t('horse')}</td>
-                        <td>{I18n.t('age')}</td>
-                        <td>
+                        <th>{I18n.t('numberPlace')}</th>
+                        <th>{I18n.t('horse')}</th>
+                        <th>{I18n.t('age')}</th>
+                        <th>
                             WGT <br/>
                             OR
-                        </td>
-                        <td>
-                            {I18n.t('jockey')}
+                        </th>
+                        <th>
+                            {I18n.t('jockey')} <br/>
                             {I18n.t('trainer')}
-                        </td>
-                        <td>TS</td>
-                        <td>{I18n.t('odds')}</td>
+                        </th>
+                        <th>TS</th>
+                        <th>{I18n.t('odds')}</th>
                     </tr>
                     </thead>
                     <tbody>

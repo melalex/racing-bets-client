@@ -65,7 +65,7 @@ function route(entity, action) {
 
 function calculateAge(birthday) {
     let now = new Date().getYear();
-    let birthYear = birthday.getYear();
+    let birthYear = new Date(birthday).getYear();
     return now - birthYear;
 }
 

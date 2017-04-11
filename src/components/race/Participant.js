@@ -32,22 +32,40 @@ export default class Participant extends Component {
         this.props.onGetByParticipant({trainer: id});
     }
 
+
+// <td>{I18n.t('numberPlace')}</td>
+// <td>{I18n.t('horse')}</td>
+// <td>{I18n.t('age')}</td>
+// <td>
+//     WGT <br/>
+//     OR
+//     </td>
+//     <td>
+//     {I18n.t('jockey')}
+//     {I18n.t('trainer')}
+// </td>
+// <td>TS</td>
+// <td>{I18n.t('odds')}</td>
+
+
     render() {
-        let {number, place, horse, carriedWeight, officialRating, jockey, trainer, odds} = this.props.entity;
+        let {number, place, horse, carriedWeight, officialRating, jockey, trainer, topSpeed, odds} = this.props.entity;
+
         return (
             <tr>
-                <td>{number + ' (' + place ? place : I18n.t('na') + ')'}</td>
-                <td><a onClick={e => this.searchByHorse(e, horse.id)}>{horse.name}</a></td>
+                <td>{number}({place || place !== 0 ? place : I18n.t('na')})</td>
+                <td><a href="#" onClick={e => this.searchByHorse(e, horse.id)}>{horse.name}</a></td>
                 <td>{calculateAge(horse.birthday)}</td>
                 <td>
-                    {carriedWeight}<br/>
-                    {officialRating}
+                    {carriedWeight || carriedWeight !== 0 ? carriedWeight : I18n.t('na')}<br/>
+                    {officialRating || officialRating !== 0 ? officialRating : I18n.t('na')}
                 </td>
                 <td>
-                    <a onClick={e => this.searchByJockey(e, jockey.id)}>{fullName(jockey)}</a><br/>
-                    <a onClick={e => this.searchByTrainer(e, trainer.id)}>{fullName(trainer)}</a>
+                    <a href="#" onClick={e => this.searchByJockey(e, jockey.id)}>{fullName(jockey)}</a><br/>
+                    <a href="#" onClick={e => this.searchByTrainer(e, trainer.id)}>{fullName(trainer)}</a>
                 </td>
-                <td>{odds}</td>
+                <td>{topSpeed || topSpeed !== 0 ? topSpeed : I18n.t('na')}</td>
+                <td>{odds || odds !== 0 ? odds : I18n.t('na')}</td>
             </tr>
         );
     }

@@ -7,16 +7,6 @@ import {I18n} from 'react-redux-i18n'
 import {Col, Row} from "reactstrap";
 
 export default class RaceInf extends Component {
-    constructor(props) {
-        super(props);
-
-        this.searchByRacecourse = this.searchByRacecourse.bind(this);
-    }
-
-    searchByRacecourse(e, id) {
-        e.preventDefault();
-        this.props.onFilter({racecourse: id});
-    }
 
     render() {
         let {
@@ -33,51 +23,51 @@ export default class RaceInf extends Component {
 
         return (
             <Row>
+                <Col md={{size : 4}}>
+                    <dl className="row">
+                        <dt className="col-sm-6">{I18n.t('minBet')}</dt>
+                        <dd className="col-sm-6">{minBet}</dd>
+
+                        <dt className="col-sm-6">{I18n.t('commission')}</dt>
+                        <dd className="col-sm-6">{commission}</dd>
+
+                        <dt className="col-sm-6">{I18n.t('raceType')}</dt>
+                        <dd className="col-sm-6">{raceType}</dd>
+
+                        <dt className="col-sm-6">{I18n.t('trackCondition')}</dt>
+                        <dd className="col-sm-6">{trackCondition}</dd>
+                    </dl>
+                </Col>
+
                 <Col md={{size : 3}}>
                     <dl className="row">
-                        <dt className="col-sm-3">{I18n.t('minBet')}</dt>
-                        <dd className="col-sm-9">{minBet}</dd>
+                        <dt className="col-sm-6">{I18n.t('minAge')}</dt>
+                        <dd className="col-sm-6">{minAge}</dd>
 
-                        <dt className="col-sm-3">{I18n.t('commission')}</dt>
-                        <dd className="col-sm-9">{commission}</dd>
+                        <dt className="col-sm-6">{I18n.t('minRating')}</dt>
+                        <dd className="col-sm-6">{minRating}</dd>
 
-                        <dt className="col-sm-3">{I18n.t('raceType')}</dt>
-                        <dd className="col-sm-9">{raceType}</dd>
+                        <dt className="col-sm-6">{I18n.t('maxRating')}</dt>
+                        <dd className="col-sm-6">{maxRating}</dd>
 
-                        <dt className="col-sm-3">{I18n.t('trackCondition')}</dt>
-                        <dd className="col-sm-9">{trackCondition}</dd>
+                        <dt className="col-sm-6">{I18n.t('distance')}</dt>
+                        <dd className="col-sm-6">{distance}</dd>
                     </dl>
                 </Col>
 
-                <Col md={{size : 3, offset: 1}}>
+                <Col md={{size : 4}}>
                     <dl className="row">
-                        <dt className="col-sm-3">{I18n.t('minAge')}</dt>
-                        <dd className="col-sm-9">{minAge}</dd>
+                        <dt className="col-sm-2">{'1:'}</dt>
+                        <dd className="col-sm-10">{prizes[1] ? prizes[1] : I18n.t('na')}</dd>
 
-                        <dt className="col-sm-3">{I18n.t('minRating')}</dt>
-                        <dd className="col-sm-9">{minRating}</dd>
+                        <dt className="col-sm-2">{'2:'}</dt>
+                        <dd className="col-sm-10">{prizes[2] ? prizes[2] : I18n.t('na')}</dd>
 
-                        <dt className="col-sm-3">{I18n.t('maxRating')}</dt>
-                        <dd className="col-sm-9">{maxRating}</dd>
+                        <dt className="col-sm-2">{'3:'}</dt>
+                        <dd className="col-sm-10">{prizes[3] ? prizes[3] : I18n.t('na')}</dd>
 
-                        <dt className="col-sm-3">{I18n.t('distance')}</dt>
-                        <dd className="col-sm-9">{distance}</dd>
-                    </dl>
-                </Col>
-
-                <Col md={{size : 3, offset: 1}}>
-                    <dl className="row">
-                        <dt className="col-sm-3">{'1:'}</dt>
-                        <dd className="col-sm-9">{prizes[1] ? prizes[1] : I18n.t('na')}</dd>
-
-                        <dt className="col-sm-3">{'2:'}</dt>
-                        <dd className="col-sm-9">{prizes[2] ? prizes[2] : I18n.t('na')}</dd>
-
-                        <dt className="col-sm-3">{'3:'}</dt>
-                        <dd className="col-sm-9">{prizes[3] ? prizes[3] : I18n.t('na')}</dd>
-
-                        <dt className="col-sm-3">{'4:'}</dt>
-                        <dd className="col-sm-9">{prizes[4] ? prizes[4] : I18n.t('na')}</dd>
+                        <dt className="col-sm-2">{'4:'}</dt>
+                        <dd className="col-sm-10">{prizes[4] ? prizes[4] : I18n.t('na')}</dd>
                     </dl>
                 </Col>
             </Row>
