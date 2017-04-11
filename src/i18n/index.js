@@ -46,7 +46,11 @@ const translationsObject = {
         age: 'Age',
         jockey: 'Jockey',
         trainer: 'Trainer',
-        odds: 'Odds'
+        odds: 'Odds',
+        header404: "We couldn't find the page..",
+        text404: 'Sorry, but the page you are looking for was either not found or does not exist. <br/>'
+        + ' Try refreshing the page or click the button below to go back to the Homepage.',
+        home404: 'Go to App',
     },
     ru: {
         invalidResponse: 'Неверный формат ответа сервера',
@@ -88,7 +92,12 @@ const translationsObject = {
         age: 'Возрвст',
         jockey: 'Жокей',
         trainer: 'Тренер',
-        odds: 'Коэффициенты'
+        odds: 'Коэффициенты',
+        header404: 'Не удалось найти страницу ..',
+        text404: 'Извините, но страница, которую вы ищете, либо не найдена, либо не существует. <br/>'
+        + ' Попробуйте обновить страницу или нажмите кнопку ниже, чтобы вернуться на главную страницу.',
+        home404: 'Вернуться на главную',
+
     }
 };
 

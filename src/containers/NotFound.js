@@ -5,6 +5,7 @@
 import React from 'react';
 import {Link} from "react-router";
 import {connect} from "react-redux";
+import {I18n} from 'react-redux-i18n'
 
 class NotFound extends React.Component {
     // TODO: i18n this
@@ -12,26 +13,25 @@ class NotFound extends React.Component {
         return (
             <div className="nb-error">
                 <div className="error-code">404</div>
-                <h3 className="font-bold">We couldn't find the page..</h3>
+                <h3 className="font-bold">{I18n.t('header404')}</h3>
 
                 <div className="error-desc">
-                    Sorry, but the page you are looking for was either not found or does not exist. <br/>
-                    Try refreshing the page or click the button below to go back to the Homepage.
+                    {I18n.t('text404')}
 
                     <ul className="list-inline text-center text-sm">
                         <li className="list-inline-item">
                             <Link to="/" className="text-muted">
-                                Go to App
+                                {I18n.t('home404')}
                             </Link>
                         </li>
                         <li className="list-inline-item">
                             <Link to="/login" className="text-muted">
-                                Login
+                                {I18n.t('auth')}
                             </Link>
                         </li>
                         <li className="list-inline-item">
                             <Link to="/register" className="text-muted">
-                                Register
+                                {I18n.t('register')}
                             </Link>
                         </li>
                     </ul>
