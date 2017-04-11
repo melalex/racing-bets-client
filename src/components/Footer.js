@@ -4,10 +4,14 @@
 
 import React from 'react'
 
-export default (
-    <footer className="footer">
-        <div className="container">
-            <span className="text-muted">&copy; Melashchenko, 2017</span>
-        </div>
-    </footer>
-)
+export default class LanguagePicker extends React.Component {
+    render() {
+        return (
+            <footer className="footer">
+                <div className="container">
+                    <span className="text-muted">&copy; Melashchenko, 2017</span>
+                </div>
+            </footer>
+        )
+    }
+}

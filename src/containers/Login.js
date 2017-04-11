@@ -5,12 +5,12 @@
 import React from 'react'
 import {Button, Col, Container, Jumbotron, Label, Row} from "reactstrap"
 import {AvField, AvForm, AvGroup} from "availity-reactstrap-validation"
-import I18n from 'react-redux-i18n'
+import {I18n} from 'react-redux-i18n'
 import {bindActionCreators} from "redux";
 import {signIn} from "../actions/Client";
 import {connect} from "react-redux";
 
-export default class Login extends React.Component {
+class Login extends React.Component {
     constructor(props) {
         super(props);
         this.signIn = this.signIn.bind(this);
@@ -46,8 +46,10 @@ export default class Login extends React.Component {
     }
 }
 
-function mapStateToProps() {
-    return {}
+function mapStateToProps(state) {
+    return {
+        language: state.app.language
+    }
 }
 
 function mapDispatchToProps(dispatch) {

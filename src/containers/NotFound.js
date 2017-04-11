@@ -4,8 +4,9 @@
 
 import React from 'react';
 import {Link} from "react-router";
+import {connect} from "react-redux";
 
-export default class NotFound extends React.Component {
+class NotFound extends React.Component {
     // TODO: i18n this
     render() {
         return (
@@ -28,6 +29,11 @@ export default class NotFound extends React.Component {
                                 Login
                             </Link>
                         </li>
+                        <li className="list-inline-item">
+                            <Link to="/register" className="text-muted">
+                                Register
+                            </Link>
+                        </li>
                     </ul>
                     <div className="text-center">
                         <span className="text-muted">&copy; Melashchenko, 2017</span>
@@ -37,3 +43,11 @@ export default class NotFound extends React.Component {
         )
     }
 }
+
+function mapStateToProps(state) {
+    return {
+        language: state.app.language
+    }
+}
+
+export default connect(mapStateToProps)(NotFound);

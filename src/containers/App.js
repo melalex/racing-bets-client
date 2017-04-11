@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import Footer from '../components/Footer'
 import Header from './Header'
 import Notifications from '../components/Notifications'
-import Sidebar from '../components/Sidebar'
 import Progress from 'react-progress-2'
 import {connect} from "react-redux";
 
@@ -11,8 +10,8 @@ class App extends Component {
         return (
             <div className="wrapper">
                 <Header/>
+                {this.props.language}
                 <Progress.Component/>
-                <Sidebar/>
 
                 <div className="container big-margin-top content">
                     <Notifications errors={this.props.errors} info={this.props.info}/>

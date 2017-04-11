@@ -5,7 +5,7 @@
 import {loadTranslations, setLocale, syncTranslationWithStore} from 'react-redux-i18n';
 import {LANGUAGE_KEY, DEFAULT_LANGUAGE} from '../constants/App'
 
-translationsObject = {
+const translationsObject = {
     en: {
         auth: 'Sign in',
         logout: 'Logout',

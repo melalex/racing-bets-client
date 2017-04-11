@@ -28,7 +28,7 @@ export default class Notifications extends Component {
     }
 }
 
-Notifications.PropTypes = {
+Notifications.propTypes = {
     errors: PropTypes.array,
     info: PropTypes.string
 };
