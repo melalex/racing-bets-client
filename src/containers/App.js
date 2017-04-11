@@ -5,6 +5,8 @@ import Notifications from '../components/Notifications'
 import Progress from 'react-progress-2'
 import {connect} from "react-redux";
 import Sidebar from '../components/Sidebar'
+import {bindActionCreators} from "redux";
+import {setRaceStatus} from '../actions/Race'
 
 class App extends Component {
     render() {
@@ -13,7 +15,7 @@ class App extends Component {
                 <Header/>
                 <Progress.Component/>
 
-                <Sidebar/>
+                <Sidebar setRaceStatus={this.props.setRaceStatus}/>
 
                 <div className="container big-margin-top content">
                     <Notifications errors={this.props.errors} info={this.props.info}/>
@@ -35,4 +37,10 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(App)
+function mapDispatchToProps(dispatch) {
+    return {
+        setRaceStatus: bindActionCreators(setRaceStatus, dispatch),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

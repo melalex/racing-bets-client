@@ -3,23 +3,37 @@
  */
 
 import BurgerMenu from './Menu'
-import React from 'react'
-import {Link} from "react-router";
+import React, {PropTypes, Component} from 'react'
 import {I18n} from 'react-redux-i18n'
 
-export default class Sidebar extends React.Component {
+export default class Sidebar extends Component {
+    constructor(props) {
+        super(props);
+
+        this.onStatusChange = this.onStatusChange.bind(this);
+    }
+
+    onStatusChange(e, status) {
+        e.preventDefault();
+        this.props.setRaceStatus(status);
+    }
+
     render() {
         return (
             <BurgerMenu id="sidebar" className="sidebar-wrapper">
                 <ul className="sidebar-nav">
                     <li>
-                        <a href="#">{I18n.t('scheduled')}</a>
+                        <a onClick={e => this.onStatusChange('scheduled')}>{I18n.t('scheduled')}</a>
                     </li>
                     <li>
-                        <a href="#">{I18n.t('finished')}</a>
+                        <a onClick={e => this.onStatusChange('finished')}>{I18n.t('finished')}</a>
                     </li>
                 </ul>
             </BurgerMenu>
         )
     }
 }
+
+Sidebar.propTypes = {
+    setRaceStatus: PropTypes.func.isRequired
+};
