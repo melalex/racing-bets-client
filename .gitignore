@@ -29,3 +29,4 @@ src/
 !/src/styles/App.css
 !/src/containers/Register.js
 !/src/components/interface/Sidebar.js
+!/src/components/bet/Bet.js

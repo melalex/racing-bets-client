@@ -19,7 +19,7 @@ class Register extends React.Component {
 
     signUp(value) {
         if (value.password === value.confirmPassword) {
-            this.props.signIn({
+            this.props.signUp({
                 firstName: value.firstName,
                 lastName: value.lastName,
                 login: value.login,

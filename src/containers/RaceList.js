@@ -22,13 +22,26 @@ class RaceList extends React.Component {
     }
 
     componentDidMount() {
-        this.props.getRaces({page: 1, status: this.props.raceStatus})
+        this.props.getRaces({page: 1, status: this.props.params.status})
     }
 
     componentWillReceiveProps(nextProps) {
-        if (nextProps.raceStatus !== this.props.raceStatus) {
-            this.props.getRaces({page: 1, status: this.props.raceStatus})
+        if (!RaceList.isParamsEquals(nextProps.params, this.props.params)) {
+            this.props.getRaces(nextProps.params)
         }
+    }
+
+    // /api/race?status=%s&racecourse=%d&horse=%d&trainer=%d&jockey=%d&name=%s&date=%d&page=%d
+
+    static isParamsEquals(param1, param2) {
+        return param1.status === param2.status
+            && param1.racecourse === param2.racecourse
+            && param1.jockey === param2.jockey
+            && param1.horse === param2.horse
+            && param1.trainer === param2.trainer
+            && param1.name === param2.name
+            && param1.date === param2.date
+            && param1.page === param2.page
     }
 
     onFilter(params) {
@@ -75,8 +88,6 @@ function mapStateToProps(state) {
         params: state.content.params,
         count: state.content.count,
         limit: state.content.limit,
-        fetching: state.content.fetching,
-        raceStatus: state.app.raceStatus,
         language: state.app.language,
     }
 }

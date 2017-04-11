@@ -24,6 +24,10 @@ export default class Sidebar extends Component {
         return (
             <BurgerMenu id="sidebar" className="sidebar-wrapper">
                 <ul className="sidebar-nav">
+                    <li className="sidebar-brand">
+                        <a href="/">Racing Bets</a>
+                    </li>
+
                     <li>
                         <a href="#" onClick={e => this.onStatusChange(e, SCHEDULED)}>{I18n.t('scheduled')}</a>
                     </li>

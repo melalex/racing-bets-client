@@ -93,3 +93,7 @@ body {
     margin-bottom: 7% !important;
     margin-top: 5% !important;
 }
+
+.fixed-nav {
+    position: fixed;
+}

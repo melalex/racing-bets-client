@@ -12,10 +12,11 @@ class App extends Component {
     render() {
         return (
             <div className="wrapper">
+                <Sidebar setRaceStatus={this.props.setRaceStatus} isAuthenticated={this.props.isAuthenticated}/>
+
                 <Header/>
                 <Progress.Component/>
 
-                <Sidebar setRaceStatus={this.props.setRaceStatus} isAuthenticated={this.props.isAuthenticated}/>
 
                 <div className="container big-margin-top content">
                     <Notifications errors={this.props.errors} info={this.props.info}/>
