@@ -5,17 +5,43 @@
 import React from 'react'
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
-import {signUp, signIn, signOut} from '../actions/Client'
+import {signOut} from '../actions/Client'
+import {Button,} from "reactstrap";
+import I18n from 'react-redux-i18n'
 
 export default class Credentials extends React.Component {
 
     render() {
-        let {isAuthenticated, login, balance, signUp, signIn, signOut} = this.props;
+        let {isAuthenticated, login, balance, signOut} = this.props;
         return (
             isAuthenticated ? (
-                null
+                <div>
+                    <li className="nav-item pull-xs-right">
+                        <p className="navbar-text">{login}</p>
+                    </li>
+                    <li className="nav-item pull-xs-right">
+                        <p className="navbar-text">{'balance: ' + balance}</p>
+                    </li>
+                    <li className="nav-item pull-xs-right">
+                        <Button outline color="danger" onClick={signOut}>
+                            {I18n.t('logout')}
+                        </Button>
+                    </li>
+                </div>
+
             ) : (
-                null
+                <div>
+                    <li className="nav-item pull-xs-right">
+                        <Button outline color="primary" href="/login">
+                            {I18n.t('auth')}
+                        </Button>
+                    </li>
+                    <li className="nav-item pull-xs-right">
+                        <Button outline color="success" href="/register">
+                            {I18n.t('register')}
+                        </Button>
+                    </li>
+                </div>
             )
         )
     }
@@ -31,8 +57,6 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        signUp: bindActionCreators(signUp, dispatch),
-        signIn: bindActionCreators(signIn, dispatch),
         signOut: bindActionCreators(signOut, dispatch),
     }
 }

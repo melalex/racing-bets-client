@@ -8,6 +8,7 @@ import {LANGUAGE_KEY, DEFAULT_LANGUAGE} from '../constants/App'
 translationsObject = {
     en: {
         auth: 'Sign in',
+        logout: 'Logout',
         register: 'Sign up',
         firstName: 'First name',
         lastName: 'Last name',
@@ -19,7 +20,8 @@ translationsObject = {
         confirmPasswordError: 'Password and confirm password should be same'
     },
     ru: {
-        auth: 'Вход в систему',
+        auth: 'Вход',
+        logout: 'Выход',
         register: 'Регистарция',
         firstName: 'Имя',
         lastName: 'Фамилия',

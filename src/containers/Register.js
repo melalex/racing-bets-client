@@ -2,16 +2,19 @@
  * Created by melalex on 4/11/17.
  */
 
-import React, {PropTypes, Component} from 'react'
+import React from 'react'
 import {Button, Col, Container, Jumbotron, Label, Row} from "reactstrap"
-import Notifications from '../components/Notifications'
 import {AvField, AvForm, AvGroup} from "availity-reactstrap-validation"
 import I18n from 'react-redux-i18n'
+import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
+import {signUp} from "../actions/Client";
+import {error} from "../actions/App";
 
-export default class Register extends Component {
+export default class Register extends React.Component {
     constructor(props) {
         super(props);
-        this.signIn = this.signIn.bind(this);
+        this.signUp = this.signUp.bind(this);
     }
 
     signUp(value) {
@@ -24,20 +27,18 @@ export default class Register extends Component {
                 email: value.email,
             })
         } else {
-            this.props.addError(I18n.t('confirmPasswordError'));
+            this.props.error(I18n.t('confirmPasswordError'));
         }
     }
 
     render() {
-        let {errors} = this.props;
         return (
             <Container>
                 <Row>
                     <Col sm={{size: 6, push: 2, pull: 2, offset: 1}}>
                         <Jumbotron>
                             <h3 className="text-center small-margin-top">{I18n.t('register')}</h3>
-                            <Notifications errors={errors}/>
-                            <AvForm onValidSubmit={this.signIn}>
+                            <AvForm onValidSubmit={this.signUp}>
                                 <AvGroup>
                                     <Label for="firstName">{I18n.t('firstName')}</Label>
                                     <AvField name="firstName" required minLength="4" maxLength="45"/>
@@ -80,8 +81,15 @@ export default class Register extends Component {
     }
 }
 
-Register.PropTypes = {
-    signUp: PropTypes.func.isRequired,
-    addError: PropTypes.func.isRequired,
-    errors: PropTypes.array.isRequired,
-};
+function mapStateToProps() {
+    return {}
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        signUp: bindActionCreators(signUp, dispatch),
+        error: bindActionCreators(error, dispatch),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Register)

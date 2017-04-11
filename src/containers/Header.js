@@ -10,12 +10,10 @@ import {changeLanguage} from '../actions/App'
 
 class Header extends React.Component {
 
-
-
     render() {
         let {isAuthenticated, login, balance, language, signOut, changeLanguage} = this.props;
         return (
-            <nav className="navbar navbar-dark bg-primary">
+            <nav className="navbar navbar-inverse bg-inverse">
                 <a className="navbar-brand" href="#">Navbar</a>
                 <ul className="nav navbar-nav">
                     <li className="nav-item active">

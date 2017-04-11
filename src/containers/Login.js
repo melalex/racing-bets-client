@@ -2,13 +2,15 @@
  * Created by melalex on 4/11/17.
  */
 
-import React, {PropTypes, Component} from 'react'
+import React from 'react'
 import {Button, Col, Container, Jumbotron, Label, Row} from "reactstrap"
-import Notifications from '../components/Notifications'
 import {AvField, AvForm, AvGroup} from "availity-reactstrap-validation"
 import I18n from 'react-redux-i18n'
+import {bindActionCreators} from "redux";
+import {signIn} from "../actions/Client";
+import {connect} from "react-redux";
 
-export default class Login extends Component {
+export default class Login extends React.Component {
     constructor(props) {
         super(props);
         this.signIn = this.signIn.bind(this);
@@ -19,14 +21,12 @@ export default class Login extends Component {
     }
 
     render() {
-        let {errors} = this.props;
         return (
             <Container>
                 <Row>
                     <Col sm={{size: 6, push: 2, pull: 2, offset: 1}}>
                         <Jumbotron>
                             <h3 className="text-center small-margin-top">{I18n.t('auth')}</h3>
-                            <Notifications errors={errors}/>
                             <AvForm onValidSubmit={this.signIn}>
                                 <AvGroup>
                                     <Label for="login">{I18n.t('login')}</Label>
@@ -46,7 +46,14 @@ export default class Login extends Component {
     }
 }
 
-Login.PropTypes = {
-    signIn: PropTypes.func.isRequired,
-    errors: PropTypes.array.isRequired,
-};
+function mapStateToProps() {
+    return {}
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        signIn: bindActionCreators(signIn, dispatch),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login)
