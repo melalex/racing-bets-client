@@ -28,3 +28,4 @@ src/
 !/README.md
 !/src/styles/App.css
 !/src/containers/Register.js
+!/src/components/interface/Sidebar.js

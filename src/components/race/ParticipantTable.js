@@ -5,6 +5,7 @@
 import React, {PropTypes, Component} from 'react'
 import {Table} from "reactstrap";
 import {I18n} from 'react-redux-i18n'
+import Participant from "./Participant";
 
 export default class ParticipantTable extends Component {
 
@@ -22,12 +23,19 @@ export default class ParticipantTable extends Component {
                 <Table hover>
                     <thead>
                     <tr>
-                        <td>Id</td>
-                        <td>{I18n.t('raceId')}</td>
-                        <td>{I18n.t('betType')}</td>
-                        <td>{I18n.t('betStatus')}</td>
-                        <td>{I18n.t('betSize')}</td>
-                        <td>{I18n.t('participants')}</td>
+                        <td>{I18n.t('numberPlace')}</td>
+                        <td>{I18n.t('horse')}</td>
+                        <td>{I18n.t('age')}</td>
+                        <td>
+                            WGT <br/>
+                            OR
+                        </td>
+                        <td>
+                            {I18n.t('jockey')}
+                            {I18n.t('trainer')}
+                        </td>
+                        <td>TS</td>
+                        <td>{I18n.t('odds')}</td>
                     </tr>
                     </thead>
                     <tbody>

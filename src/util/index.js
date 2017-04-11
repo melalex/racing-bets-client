@@ -63,6 +63,12 @@ function route(entity, action) {
     return '/' + entity.toLowerCase() + '/' + action;
 }
 
+function calculateAge(birthday) {
+    let now = new Date().getYear();
+    let birthYear = birthday.getYear();
+    return now - birthYear;
+}
+
 export {
     fullName,
     basicAuthHeader,
@@ -74,5 +80,6 @@ export {
     dateFromTimestampForm,
     dateTimeFromTimestamp,
     getErrorsFromResponse,
-    route
+    route,
+    calculateAge
 }

@@ -67,16 +67,16 @@ export default class RaceInf extends Component {
 
                 <Col md={{size : 3, offset: 1}}>
                     <dl className="row">
-                        <dt className="col-sm-3">{1 + I18n.t('place') + ':'}</dt>
+                        <dt className="col-sm-3">{'1:'}</dt>
                         <dd className="col-sm-9">{prizes[1] ? prizes[1] : I18n.t('na')}</dd>
 
-                        <dt className="col-sm-3">{2 + I18n.t('place') + ':'}</dt>
+                        <dt className="col-sm-3">{'2:'}</dt>
                         <dd className="col-sm-9">{prizes[2] ? prizes[2] : I18n.t('na')}</dd>
 
-                        <dt className="col-sm-3">{3 + I18n.t('place') + ':'}</dt>
+                        <dt className="col-sm-3">{'3:'}</dt>
                         <dd className="col-sm-9">{prizes[3] ? prizes[3] : I18n.t('na')}</dd>
 
-                        <dt className="col-sm-3">{4 + I18n.t('place') + ':'}</dt>
+                        <dt className="col-sm-3">{'4:'}</dt>
                         <dd className="col-sm-9">{prizes[4] ? prizes[4] : I18n.t('na')}</dd>
                     </dl>
                 </Col>

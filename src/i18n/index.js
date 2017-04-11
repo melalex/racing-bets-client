@@ -32,6 +32,21 @@ const translationsObject = {
         search: 'Search',
         date: 'Date',
         raceName: 'Race name',
+        minBet: 'Min bet',
+        commission: 'Commission',
+        raceType: 'Race type',
+        trackCondition: 'Track condition',
+        minAge: 'Min age',
+        minRating: 'Min rating',
+        maxRating: 'Max rating',
+        distance: 'Distance',
+        na: 'N/A',
+        numberPlace: 'Number(Place)',
+        horse: 'Horse',
+        age: 'Age',
+        jockey: 'Jockey',
+        trainer: 'Trainer',
+        odds: 'Odds'
     },
     ru: {
         invalidResponse: 'Неверный формат ответа сервера',
@@ -59,6 +74,21 @@ const translationsObject = {
         search: 'Поиск',
         date: 'Дата',
         raceName: 'Название заезда',
+        minBet: 'Минимальная ставка',
+        commission: 'Комисия',
+        raceType: 'Тип заезда',
+        trackCondition: 'Состояние трэка',
+        minAge: 'Мин. в.',
+        minRating: 'Мин. рейт.',
+        maxRating: 'Макс. рейт.',
+        distance: 'Дистанция',
+        na: 'Н/Д',
+        numberPlace: 'Номер(Место)',
+        horse: 'Лошадь',
+        age: 'Возрвст',
+        jockey: 'Жокей',
+        trainer: 'Тренер',
+        odds: 'Коэффициенты'
     }
 };
 
