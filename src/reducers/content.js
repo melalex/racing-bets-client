@@ -9,7 +9,7 @@ const initialState = {
     content: [],
     count: 0,
     limit: 20,
-    params: {},
+    params: {page: 1},
     fetching: false,
 };
 

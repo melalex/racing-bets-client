@@ -18,8 +18,8 @@ class RaceList extends React.Component {
     }
 
     render() {
-        let {entities, page, limit, count} = this.props;
-        let rows = entities.map((entity, i) => <Bet key={i} entity={entity}/>);
+        let {content, page, limit, count} = this.props;
+        let rows = content.map((entity, i) => <Bet key={i} entity={entity}/>);
         return (
             rows.length === 0
                 ?
@@ -50,7 +50,7 @@ class RaceList extends React.Component {
 function mapStateToProps(state) {
     return {
         content: state.content.content,
-        page: state.content.page,
+        page: state.content.params.page,
         count: state.content.count,
         limit: state.content.limit,
         fetching: state.content.fetching

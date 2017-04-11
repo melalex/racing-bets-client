@@ -5,7 +5,7 @@
 
 import React, {PropTypes, Component} from 'react'
 
-export default class HorseRow extends Component {
+export default class Bet extends Component {
 
 
 render() {
@@ -28,7 +28,7 @@ render() {
     }
 }
 
-HorseRow.propTypes = {
+Bet.propTypes = {
     entity: PropTypes.shape({
         id: PropTypes.number.isRequired,
         raceId: PropTypes.number.isRequired,
