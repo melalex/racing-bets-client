@@ -96,8 +96,15 @@ function getOdds(bet) {
     }
 }
 
+function setBalance(balance) {
+    return {
+        type: betConst.SET_BALANCE,
+        payload: balance
+    }
+}
+
 function getBets(page) {
     getContent('api/bet', {page: page})
 }
 
-export {makeBet, getOdds, getBets}
+export {makeBet, getOdds, getBets, setBalance}

@@ -18,6 +18,10 @@ export default function bet(state = initialState, action) {
             Progress.show();
             return {...state, fetching: true};
 
+        case actionConst.SET_BALANCE:
+            Progress.hide();
+            return {...state, fetching: false, balance: action.payload};
+
         case actionConst.MAKE_BET_SUCCESS:
             Progress.hide();
             return {...state, fetching: false, balance: action.payload};

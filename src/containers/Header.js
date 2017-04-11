@@ -20,7 +20,7 @@ class Header extends React.Component {
                         <NavbarToggler onClick={() => toggleMenu({isOpen: !isOpen})}/>
                     </Col>
                     <Col>
-                        <NavbarBrand href="/">Racing Bets Admin</NavbarBrand>
+                        <NavbarBrand href="/">Racing Bets</NavbarBrand>
                     </Col>
                     <Credentials/>
                 </Row>

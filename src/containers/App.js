@@ -15,7 +15,7 @@ class App extends Component {
                 <Header/>
                 <Progress.Component/>
 
-                <Sidebar setRaceStatus={this.props.setRaceStatus}/>
+                <Sidebar setRaceStatus={this.props.setRaceStatus} isAuthenticated={this.props.isAuthenticated}/>
 
                 <div className="container big-margin-top content">
                     <Notifications errors={this.props.errors} info={this.props.info}/>
@@ -33,7 +33,8 @@ function mapStateToProps(state) {
     return {
         errors: state.app.errors,
         info: state.app.info,
-        language: state.app.language
+        language: state.app.language,
+        isAuthenticated: state.client.isAuthenticated
     }
 }
 

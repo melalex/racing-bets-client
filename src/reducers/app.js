@@ -4,11 +4,11 @@
 
 import * as actionConst from '../constants/App'
 import {LANGUAGE_KEY, DEFAULT_LANGUAGE} from '../constants/App'
-import {CHANGE_STATUS} from '../constants/Race'
+import {CHANGE_STATUS, SCHEDULED} from '../constants/Race'
 
 const initialState = {
     language: window.localStorage.getItem(LANGUAGE_KEY) || DEFAULT_LANGUAGE,
-    raceStatus: 'scheduled',
+    raceStatus: SCHEDULED,
     errors: [],
     info: ''
 };

@@ -7,7 +7,8 @@ import * as appConst from '../constants/App'
 import {API_ROOT} from  '../constants/Api'
 import {ajax} from 'jquery'
 import {push} from 'react-router-redux';
-import {basicAuthHeader, isExpired, getErrorsFromResponse, languageHeader} from "../util"
+import {basicAuthHeader, isExpired, getErrorsFromResponse, languageHeader} from "../util";
+import {setBalance} from "./Bet"
 
 
 function signIn(login, password) {
@@ -41,6 +42,7 @@ function signIn(login, password) {
                         }
                     });
                     dispatch(push('/'));
+                    dispatch(setBalance(token.balance))
                 }
             ],
             error: [

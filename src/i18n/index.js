@@ -19,7 +19,14 @@ const translationsObject = {
         submit: 'Submit',
         confirmPasswordError: 'Password and confirm password should be same',
         scheduled: 'Scheduled races',
-        finished: 'History'
+        finished: 'History',
+        bets: 'My bets',
+        noResult: 'Nothing to show',
+        raceId: 'Race id',
+        betType: 'Bet type',
+        betStatus: 'Bet status',
+        betSize: 'Bet size',
+        participants: 'Participants numbers'
     },
     ru: {
         auth: 'Вход',
@@ -34,7 +41,14 @@ const translationsObject = {
         submit: 'Подтвердить',
         confirmPasswordError: 'Пароль и его подтверждение должны быть одинаковыми',
         scheduled: 'Запланированые заезды',
-        finished: 'История'
+        finished: 'История',
+        bets: 'Мои ставки',
+        noResult: 'Ничего не найдено',
+        raceId: 'Id заезда',
+        betType: 'Тип ставки',
+        betStatus: 'Статус ставки',
+        betSize: 'Размер ставки',
+        participants: 'Номера участников'
     }
 };
 

@@ -9,12 +9,14 @@ import NotFound from "../containers/NotFound";
 import Login from "../containers/Login";
 import Register from "../containers/Register";
 import RaceList from "../containers/RaceList";
+import BetList from "../containers/BetList";
 
 export default (
     <div>
         <Route path='/' component={App}>
             <IndexRoute component={RaceList}/>
 
+            <Route path="/bets" component={BetList}/>
             <Route path="/login" component={Login}/>
             <Route path="/register" component={Register}/>
         </Route>

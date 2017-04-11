@@ -6,7 +6,7 @@ import {ajax} from "jquery"
 import {API_ROOT} from  '../constants/Api'
 import {GET_REQUEST, GET_SUCCESS, GET_FAILED} from '../constants/Content'
 import {ERROR_MESSAGE} from '../constants/App'
-import {getErrorsFromResponse, languageHeader} from "../util";
+import {getErrorsFromResponse, bearerAuthHeader} from "../util";
 
 export default function get(path, params) {
     return (dispatch, getState) => {
@@ -20,7 +20,7 @@ export default function get(path, params) {
             url: API_ROOT + path,
             crossDomain: true,
             dataType: 'json',
-            headers: languageHeader(getState),
+            headers: bearerAuthHeader(getState),
             data: params,
             success: [
                 response => {

@@ -3,7 +3,11 @@
  */
 
 const CHANGE_STATUS = 'CHANGE_STATUS';
+const SCHEDULED = 'scheduled';
+const FINISHED = 'finished';
 
 export {
-    CHANGE_STATUS
+    CHANGE_STATUS,
+    SCHEDULED,
+    FINISHED
 }
