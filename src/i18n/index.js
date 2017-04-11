@@ -7,6 +7,8 @@ import {LANGUAGE_KEY, DEFAULT_LANGUAGE} from '../constants/App'
 
 const translationsObject = {
     en: {
+        invalidResponse: 'Invalid response',
+        clientError: 'Error during sending request to server',
         auth: 'Sign in',
         logout: 'Logout',
         register: 'Sign up',
@@ -26,9 +28,14 @@ const translationsObject = {
         betType: 'Bet type',
         betStatus: 'Bet status',
         betSize: 'Bet size',
-        participants: 'Participants numbers'
+        participants: 'Participants numbers',
+        search: 'Search',
+        date: 'Date',
+        raceName: 'Race name',
     },
     ru: {
+        invalidResponse: 'Неверный формат ответа сервера',
+        clientError: 'Ошибка при отправке запроса на сервер',
         auth: 'Вход',
         logout: 'Выход',
         register: 'Регистарция',
@@ -48,7 +55,10 @@ const translationsObject = {
         betType: 'Тип ставки',
         betStatus: 'Статус ставки',
         betSize: 'Размер ставки',
-        participants: 'Номера участников'
+        participants: 'Номера участников',
+        search: 'Поиск',
+        date: 'Дата',
+        raceName: 'Название заезда',
     }
 };
 

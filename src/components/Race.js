@@ -52,4 +52,5 @@ Race.propTypes = {
         participants: PropTypes.array,
         prizes: PropTypes.object
     }).isRequired,
+    onGetByParticipant: PropTypes.func.isRequired
 };

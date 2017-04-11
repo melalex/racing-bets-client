@@ -3,6 +3,7 @@
  */
 
 import dateformat from 'dateformat'
+import {I18n} from 'react-redux-i18n'
 
 function fullName(person) {
     return (person === undefined) ? null : person.firstName + ' ' + person.lastName;
@@ -51,11 +52,10 @@ function getErrorsFromResponse(response) {
         try {
             return JSON.parse(response.responseText).result.map(e => e.message);
         } catch (e) {
-            // TODO: i18n this
-            return "Invalid response"
+            return [I18n.t('invalidResponse')]
         }
     } else {
-        return response.statusText
+        return [I18n.t('clientError')]
     }
 }
 

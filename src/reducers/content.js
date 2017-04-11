@@ -17,7 +17,7 @@ export default function content(state = initialState, action) {
     switch (action.type) {
         case actionConst.GET_REQUEST:
             Progress.show();
-            return {...state, fetching: true, params: action.payload.params};
+            return {...state, fetching: true, params: action.payload};
 
         case actionConst.GET_SUCCESS:
             Progress.hide();

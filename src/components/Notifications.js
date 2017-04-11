@@ -15,7 +15,7 @@ export default class Notifications extends Component {
                         ?
                         errors.map((e, i) =>
                             <UncontrolledAlert key={i} color="danger">
-                                <strong>{e.message}</strong>
+                                <strong>{e}</strong>
                             </UncontrolledAlert>
                         )
                         : null

@@ -10,12 +10,15 @@ import {I18n} from 'react-redux-i18n'
 import Pager from "../components/Pager";
 import Race from "../components/Race";
 import Filter from "../components/Filter";
+import {FINISHED} from "../constants/Race"
 
 class RaceList extends React.Component {
     constructor(props) {
         super(props);
 
         this.onFilter = this.onFilter.bind(this);
+        this.onGetPage = this.onGetPage.bind(this);
+        this.onGetByParticipant = this.onGetByParticipant.bind(this);
     }
 
     componentDidMount() {
@@ -32,29 +35,47 @@ class RaceList extends React.Component {
         this.props.getRaces({...params, page: 1, raceStatus: this.props.raceStatus});
     }
 
+    onGetPage(page) {
+        this.props.getRaces({...this.props.params, page: page})
+    }
+
+    onGetByParticipant(params) {
+        this.props.getRaces({...params, page: 1, raceStatus: FINISHED})
+    }
+
     render() {
         let {content, params, limit, count} = this.props;
-        let rows = content.map((entity, i) => <Race key={i} entity={entity}/>);
+
+        console.log(this.props);
+
+        let rows = content.map((entity, i) => <Race key={i} entity={entity}
+                                                    onGetByParticipant={this.onGetByParticipant}/>);
         return (
-            rows.length === 0
-                ?
-                <h1 className="text-center no-result-text">{I18n.t('noResult')}</h1>
-                :
-                <div className="table-margin">
-                    <Filter params={params} onFilter={this.onFilter}/>
-                    {rows}
-                    <Pager page={params.page} count={count} limit={limit} changePage={this.props.getBets}/>
-                </div>
+            <div className="table-margin">
+                <Filter params={params} onFilter={this.onFilter}/>
+
+                {
+                    rows.length === 0 ? (
+                        <h1 className="text-center no-result-text">{I18n.t('noResult')}</h1>
+                    ) : (
+                        <div>
+                            {rows}
+                            <Pager page={params.page} count={count} limit={limit} changePage={this.onGetPage}/>
+                        </div>
+                    )
+                }
+            </div>
         )
-    }}
+    }
+}
 
 function mapStateToProps(state) {
     return {
         content: state.content.content,
+        params: state.content.params,
         count: state.content.count,
         limit: state.content.limit,
         fetching: state.content.fetching,
-        params: state.content.params,
         raceStatus: state.app.raceStatus,
     }
 }
