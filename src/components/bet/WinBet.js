@@ -104,7 +104,7 @@ export default class WinBet extends Component {
 
                         <FormGroup check row>
                             <Row>
-                                <Col sm={{size: 4, offset: 2}}>
+                                <Col sm={{size: 4, offset: 4}}>
                                     <Button type="submit" onClick={this.onOdds}>{I18n.t('odds')}</Button>
                                 </Col>
                                 <Col sm={{size: 4}}>

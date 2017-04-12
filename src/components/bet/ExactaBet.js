@@ -104,7 +104,7 @@ export default class ExactaBet extends Component {
 
                         <FormGroup check row>
                             <Row>
-                                <Col sm={{size: 4, offset: 2}}>
+                                <Col sm={{size: 4, offset: 4}}>
                                     <Button type="submit" onClick={this.onOdds}>{I18n.t('odds')}</Button>
                                 </Col>
                                 <Col sm={{size: 4}}>
@@ -120,7 +120,7 @@ export default class ExactaBet extends Component {
                     <p>{I18n.t('exaxtaDesc')}</p>
 
                     <h1>{I18n.t('suggested')}</h1>
-                    <p>{I18n.t('exaxtaSuggested')}</p>
+                    <p>{I18n.t('exactaSuggested')}</p>
                 </Col>
             </Row>
         );
