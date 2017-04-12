@@ -36,7 +36,7 @@ export default class SuperfectaBet extends Component {
         if (this.onOddsClicked) {
             let bet = this.betFromForm(value);
 
-            if (!isUnique([this.participant1, this.participant2, this.participant3])) {
+            if (!isUnique([this.participant1, this.participant2, this.participant3, this.participant4])) {
                 this.props.error(I18n.t('unique'));
             } else {
                 this.props.getOdds(bet);
