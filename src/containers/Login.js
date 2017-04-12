@@ -16,7 +16,8 @@ class Login extends React.Component {
         this.signIn = this.signIn.bind(this);
     }
 
-    signIn(value) {
+    signIn(e, value) {
+        console.log(value);
         this.props.signIn(value.login, value.password)
     }
 

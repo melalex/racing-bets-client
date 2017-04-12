@@ -39,7 +39,7 @@ function makeBet(bet) {
             url: API_ROOT + '/api/bet',
             crossDomain: true,
             dataType: 'json',
-            data: bet,
+            data: JSON.stringify(bet),
             headers: bearerAuthHeader(getState),
             success: [
                 response => {
@@ -85,7 +85,7 @@ function getOdds(bet) {
             url: API_ROOT + '/api/bet/odds',
             crossDomain: true,
             dataType: 'json',
-            data: bet,
+            data: JSON.stringify(bet),
             headers: bearerAuthHeader(getState),
             success: [
                 response => {
@@ -144,7 +144,7 @@ function requestBalance(id) {
 }
 
 function getBets(page) {
-    getContent('api/bet', {page: page})
+    return getContent('/api/bet', {page: page})
 }
 
 export {makeBet, getOdds, getBets, requestBalance, goToBettingPage, clearOdds}

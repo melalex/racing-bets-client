@@ -26,7 +26,7 @@ class Credentials extends React.Component {
                                 <p className="navbar-text">{login}</p>
                             </Col>
                             <Col md={{size: 2, offset: 1}}>
-                                <p className="navbar-text">{'balance: ' + balance}</p>
+                                <p className="navbar-text">{I18n.t('balance')} {balance}</p>
                             </Col>
                             <Col md={{size: 2, offset: 1}}>
                                 <Button outline color="danger" onClick={signOut}>

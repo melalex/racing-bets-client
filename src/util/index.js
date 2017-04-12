@@ -48,11 +48,12 @@ function dateTimeFromTimestamp(timestamp) {
 }
 
 function getErrorsFromResponse(response) {
+    console.log(response);
+
     if (response.responseText) {
         try {
             return JSON.parse(response.responseText).result.map(e => e.message);
         } catch (e) {
-            console.log(response);
             return [I18n.t('invalidResponse')]
         }
     } else {

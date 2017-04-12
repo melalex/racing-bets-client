@@ -32,8 +32,6 @@ class RaceList extends React.Component {
         }
     }
 
-    // /api/race?status=%s&racecourse=%d&horse=%d&trainer=%d&jockey=%d&name=%s&date=%d&page=%d
-
     static isParamsEquals(param1, param2) {
         return param1.status === param2.status
             && param1.racecourse === param2.racecourse

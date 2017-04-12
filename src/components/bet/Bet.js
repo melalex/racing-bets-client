@@ -19,10 +19,10 @@ render() {
                 <td>{betStatus}</td>
                 <td>{betSize}</td>
                 <td>
-                    {'1: ' + participants[1].horse ? participants[1].horse.name : I18n.t('na')} <br/>
-                    {'2: ' + participants[2].horse ? participants[2].horse.name : I18n.t('na')} <br/>
-                    {'3: ' + participants[3].horse ? participants[3].horse.name : I18n.t('na')} <br/>
-                    {'4: ' + participants[4].horse ? participants[4].horse.name : I18n.t('na')}
+                    1: {participants[1] ? participants[1].horse.name : I18n.t('na')} <br/>
+                    2: {participants[2] ? participants[2].horse.name : I18n.t('na')} <br/>
+                    3: {participants[3] ? participants[3].horse.name : I18n.t('na')} <br/>
+                    4: {participants[4] ? participants[4].horse.name : I18n.t('na')}
                 </td>
             </tr>
         );

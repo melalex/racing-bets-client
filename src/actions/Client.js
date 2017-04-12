@@ -32,7 +32,6 @@ function signIn(login, password) {
             success: [
                 response => {
                     let token = response.result[0];
-                    console.log(jwtDecode(token.accessToken));
                     let id = jwtDecode(token.accessToken).sub;
                     dispatch({
                         type: clientConst.LOGIN_SUCCESS,
@@ -77,7 +76,7 @@ function signUp(account) {
             url: API_ROOT + '/api/account/register',
             crossDomain: true,
             dataType: 'json',
-            data: account,
+            data: JSON.stringify(account),
             headers: languageHeader(getState),
             success: [
                 response => {

@@ -17,7 +17,7 @@ class Register extends React.Component {
         this.signUp = this.signUp.bind(this);
     }
 
-    signUp(value) {
+    signUp(e, value) {
         if (value.password === value.confirmPassword) {
             this.props.signUp({
                 firstName: value.firstName,

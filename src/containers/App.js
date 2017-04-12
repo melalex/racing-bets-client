@@ -8,13 +8,22 @@ import Sidebar from '../components/interface/Sidebar'
 import {bindActionCreators} from "redux";
 import {setRaceStatus} from '../actions/Race'
 import {action as toggleMenu} from 'redux-burger-menu';
+import {requestBalance} from "../actions/Bet";
 
 class App extends Component {
+
+    componentDidMount() {
+        if (this.props.isAuthenticated) {
+            this.props.requestBalance(this.props.id)
+        }
+    }
+
     render() {
         let {setRaceStatus, toggleMenu, isAuthenticated, errors, info} = this.props;
          return (
             <div className="wrapper">
-                <Sidebar setRaceStatus={setRaceStatus} isAuthenticated={isAuthenticated}
+                <Sidebar setRaceStatus={setRaceStatus}
+                         isAuthenticated={isAuthenticated}
                          close={() => toggleMenu({isOpen: false})}/>
 
                 <Header/>
@@ -35,6 +44,7 @@ class App extends Component {
 
 function mapStateToProps(state) {
     return {
+        id: state.client.id,
         errors: state.app.errors,
         info: state.app.info,
         language: state.app.language,
@@ -46,6 +56,7 @@ function mapDispatchToProps(dispatch) {
     return {
         setRaceStatus: bindActionCreators(setRaceStatus, dispatch),
         toggleMenu: bindActionCreators(toggleMenu, dispatch),
+        requestBalance: bindActionCreators(requestBalance, dispatch),
     }
 }
 

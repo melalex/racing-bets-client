@@ -5,8 +5,8 @@
 import BurgerMenu from './Menu'
 import React, {PropTypes, Component} from 'react'
 import {I18n} from 'react-redux-i18n'
-import {Link} from "react-router";
 import {SCHEDULED, FINISHED} from "../../constants/Race"
+import {Link} from "react-router";
 
 export default class Sidebar extends Component {
     constructor(props) {
@@ -37,9 +37,9 @@ export default class Sidebar extends Component {
                     </li>
 
                     {
-                        this.isAuthenticated ? (
+                        this.props.isAuthenticated ? (
                             <li>
-                                <Link to="/bets">{I18n.t('bets')}</Link>
+                                <Link to="/bets" onClick={e => this.props.close()}>{I18n.t('bets')}</Link>
                             </li>
                         ) : null
                     }
@@ -53,4 +53,5 @@ Sidebar.propTypes = {
     setRaceStatus: PropTypes.func.isRequired,
     isAuthenticated: PropTypes.bool.isRequired,
     close: PropTypes.func.isRequired,
+    redirectToBets: PropTypes.func.isRequired,
 };

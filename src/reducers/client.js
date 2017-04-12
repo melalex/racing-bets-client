@@ -38,7 +38,7 @@ export default function client(state = initialState, action) {
                 fetching: false,
                 isAuthenticated: true,
                 errors: [],
-                id: action.payload.tokenType.id,
+                id: action.payload.id,
                 tokenType: action.payload.tokenType,
                 accessToken: action.payload.accessToken,
                 expiresIn: action.payload.expiresIn,

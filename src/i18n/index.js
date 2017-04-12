@@ -7,6 +7,7 @@ import {LANGUAGE_KEY, DEFAULT_LANGUAGE} from '../constants/App'
 
 const translationsObject = {
     en: {
+        balance: 'B:',
         invalidResponse: 'Invalid response',
         clientError: 'Error during sending request to server',
         auth: 'Sign in',
@@ -72,6 +73,7 @@ const translationsObject = {
         unique: 'Select different participants',
     },
     ru: {
+        balance: 'Б:',
         invalidResponse: 'Неверный формат ответа сервера',
         clientError: 'Ошибка при отправке запроса на сервер',
         auth: 'Вход',
