@@ -11,6 +11,10 @@ import {Nav, NavItem, NavLink, TabContent, TabPane} from "reactstrap";
 import ShowBet from '../components/bet/ShowBet'
 import PlaceBet from '../components/bet/PlaceBet'
 import WinBet from '../components/bet/WinBet'
+import QuinellaBet from '../components/bet/QuinellaBet'
+import ExactaBet from '../components/bet/ExactaBet'
+import TrifectaBet from '../components/bet/TrifectaBet'
+import SuperfectaBet from '../components/bet/SuperfectaBet'
 import classnames from "classnames";
 
 
@@ -101,16 +105,16 @@ class MakeBetPage extends React.Component {
                         <WinBet race={race} getOdds={getOdds} makeBet={this.makeBet} odds={odds} id={id}/>
                     </TabPane>
                     <TabPane tabId="4">
-
+                        <QuinellaBet race={race} getOdds={getOdds} makeBet={this.makeBet} odds={odds} id={id}/>
                     </TabPane>
                     <TabPane tabId="5">
-
+                        <ExactaBet race={race} getOdds={getOdds} makeBet={this.makeBet} odds={odds} id={id}/>
                     </TabPane>
                     <TabPane tabId="6">
-
+                        <TrifectaBet race={race} getOdds={getOdds} makeBet={this.makeBet} odds={odds} id={id}/>
                     </TabPane>
                     <TabPane tabId="7">
-
+                        <SuperfectaBet race={race} getOdds={getOdds} makeBet={this.makeBet} odds={odds} id={id}/>
                     </TabPane>
                 </TabContent>
             </div>

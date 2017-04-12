@@ -9,7 +9,7 @@ import {Badge, Button, Col, FormGroup, Label, Row} from "reactstrap";
 import {calcOdds} from "../../util/index";
 import {AvField, AvForm, AvGroup} from "availity-reactstrap-validation";
 
-export default class WinBet extends Component {
+export default class ExactaBet extends Component {
     constructor(props) {
         super(props);
 
@@ -51,7 +51,7 @@ export default class WinBet extends Component {
             raceId: this.props.race.id,
             user: this.props.id,
             betSize: this.betSize,
-            betType: 'Win',
+            betType: 'Exacta',
             participants: {
                 1: this.participant,
             }
@@ -117,17 +117,17 @@ export default class WinBet extends Component {
                 </Col>
                 <Col md={{size: 6}}>
                     <h1>{I18n.t('desc')}</h1>
-                    <p>{I18n.t('winDesc')}</p>
+                    <p>{I18n.t('exaxtaDesc')}</p>
 
                     <h1>{I18n.t('suggested')}</h1>
-                    <p>{I18n.t('winSuggested')}</p>
+                    <p>{I18n.t('exaxtaSuggested')}</p>
                 </Col>
             </Row>
         );
     }
 }
 
-WinBet.propTypes = {
+ExactaBet.propTypes = {
     race: PropTypes.shape({
         id: PropTypes.number,
         name: PropTypes.string,
