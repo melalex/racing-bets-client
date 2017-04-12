@@ -18,6 +18,7 @@ export default class Sidebar extends Component {
     onStatusChange(e, status) {
         e.preventDefault();
         this.props.setRaceStatus(status);
+        this.props.close();
     }
 
     render() {
@@ -51,4 +52,5 @@ export default class Sidebar extends Component {
 Sidebar.propTypes = {
     setRaceStatus: PropTypes.func.isRequired,
     isAuthenticated: PropTypes.bool.isRequired,
+    close: PropTypes.func.isRequired,
 };

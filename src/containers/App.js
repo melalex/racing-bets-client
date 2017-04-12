@@ -7,19 +7,22 @@ import {connect} from "react-redux";
 import Sidebar from '../components/interface/Sidebar'
 import {bindActionCreators} from "redux";
 import {setRaceStatus} from '../actions/Race'
+import {action as toggleMenu} from 'redux-burger-menu';
 
 class App extends Component {
     render() {
-        return (
+        let {setRaceStatus, toggleMenu, isAuthenticated, errors, info} = this.props;
+         return (
             <div className="wrapper">
-                <Sidebar setRaceStatus={this.props.setRaceStatus} isAuthenticated={this.props.isAuthenticated}/>
+                <Sidebar setRaceStatus={setRaceStatus} isAuthenticated={isAuthenticated}
+                         close={() => toggleMenu({isOpen: false})}/>
 
                 <Header/>
                 <Progress.Component/>
 
 
                 <div className="container big-margin-top content">
-                    <Notifications errors={this.props.errors} info={this.props.info}/>
+                    <Notifications errors={errors} info={info}/>
 
                     {this.props.children}
                 </div>
@@ -42,6 +45,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         setRaceStatus: bindActionCreators(setRaceStatus, dispatch),
+        toggleMenu: bindActionCreators(toggleMenu, dispatch),
     }
 }
 
