@@ -9,6 +9,8 @@ import {bindActionCreators} from "redux";
 import {makeBet, getOdds, clearOdds} from "../actions/Bet";
 import {Nav, NavItem, NavLink, TabContent, TabPane} from "reactstrap";
 import ShowBet from '../components/bet/ShowBet'
+import PlaceBet from '../components/bet/PlaceBet'
+import WinBet from '../components/bet/WinBet'
 import classnames from "classnames";
 
 
@@ -36,7 +38,7 @@ class MakeBetPage extends React.Component {
         if (this.props.isAuthenticated) {
             this.props.makeBet(bet)
         } else {
-            this.props.dispatch(push('/login'));
+            this.props.redirect('/login');
         }
     }
 
@@ -93,10 +95,10 @@ class MakeBetPage extends React.Component {
                         <ShowBet race={race} getOdds={getOdds} makeBet={this.makeBet} odds={odds} id={id}/>
                     </TabPane>
                     <TabPane tabId="2">
-
+                        <PlaceBet race={race} getOdds={getOdds} makeBet={this.makeBet} odds={odds} id={id}/>
                     </TabPane>
                     <TabPane tabId="3">
-
+                        <WinBet race={race} getOdds={getOdds} makeBet={this.makeBet} odds={odds} id={id}/>
                     </TabPane>
                     <TabPane tabId="4">
 
@@ -130,7 +132,8 @@ function mapDispatchToProps(dispatch) {
     return {
         makeBet: bindActionCreators(makeBet, dispatch),
         getOdds: bindActionCreators(getOdds, dispatch),
-        clearOdds: bindActionCreators(clearOdds, dispatch)
+        clearOdds: bindActionCreators(clearOdds, dispatch),
+        redirect: bindActionCreators(push, dispatch),
     }
 }
 

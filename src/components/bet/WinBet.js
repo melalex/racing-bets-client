@@ -9,7 +9,7 @@ import {Badge, Button, Col, FormGroup, Label, Row} from "reactstrap";
 import {calcOdds} from "../../util/index";
 import {AvField, AvForm, AvGroup} from "availity-reactstrap-validation";
 
-export default class ShowBet extends Component {
+export default class WinBet extends Component {
     constructor(props) {
         super(props);
 
@@ -34,14 +34,23 @@ export default class ShowBet extends Component {
 
     handleForm(e, value) {
         if (this.onOddsClicked) {
-            this.props.getOdds(this.betFromForm(value));
+            this.props.getOdds(this.betFormForm(value));
         } else if (this.onSubmitClicked) {
-            this.props.makeBet(this.betFromForm(value));
+            this.props.makeBet(this.betFormForm(value));
         }
 
         this.onOddsClicked = false;
         this.onSubmitClicked = false;
     }
+
+    // SHOW("Show"),
+    // PLACE("Place"),
+    // WIN("Win"),
+    // QUINELLA("Quinella"),
+    // EXACTA("Exacta"),
+    // TRIFECTA("Trifecta"),
+    // SUPERFECTA("Superfecta");
+
 
     betFromForm(form) {
         this.betSize = Number(form.betSize);
@@ -51,11 +60,9 @@ export default class ShowBet extends Component {
             raceId: this.props.race.id,
             user: this.props.id,
             betSize: this.betSize,
-            betType: 'Show',
+            betType: 'Win',
             participants: {
                 1: this.participant,
-                2: this.participant,
-                3: this.participant,
             }
         }
     }
@@ -106,7 +113,7 @@ export default class ShowBet extends Component {
 
                         <FormGroup check row>
                             <Row>
-                                <Col sm={{size: 4, offset: 4}}>
+                                <Col sm={{size: 4, offset: 2}}>
                                     <Button type="submit" onClick={this.onOdds}>{I18n.t('odds')}</Button>
                                 </Col>
                                 <Col sm={{size: 4}}>
@@ -119,17 +126,17 @@ export default class ShowBet extends Component {
                 </Col>
                 <Col md={{size: 6}}>
                     <h1>{I18n.t('desc')}</h1>
-                    <p>{I18n.t('showDesc')}</p>
+                    <p>{I18n.t('winDesc')}</p>
 
                     <h1>{I18n.t('suggested')}</h1>
-                    <p>{I18n.t('showSuggested')}</p>
+                    <p>{I18n.t('winSuggested')}</p>
                 </Col>
             </Row>
         );
     }
 }
 
-ShowBet.propTypes = {
+WinBet.propTypes = {
     race: PropTypes.shape({
         id: PropTypes.number,
         name: PropTypes.string,

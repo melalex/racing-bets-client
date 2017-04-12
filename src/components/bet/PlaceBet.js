@@ -9,7 +9,7 @@ import {Badge, Button, Col, FormGroup, Label, Row} from "reactstrap";
 import {calcOdds} from "../../util/index";
 import {AvField, AvForm, AvGroup} from "availity-reactstrap-validation";
 
-export default class ShowBet extends Component {
+export default class PlaceBet extends Component {
     constructor(props) {
         super(props);
 
@@ -51,11 +51,10 @@ export default class ShowBet extends Component {
             raceId: this.props.race.id,
             user: this.props.id,
             betSize: this.betSize,
-            betType: 'Show',
+            betType: 'Place',
             participants: {
                 1: this.participant,
                 2: this.participant,
-                3: this.participant,
             }
         }
     }
@@ -106,7 +105,7 @@ export default class ShowBet extends Component {
 
                         <FormGroup check row>
                             <Row>
-                                <Col sm={{size: 4, offset: 4}}>
+                                <Col sm={{size: 4, offset: 2}}>
                                     <Button type="submit" onClick={this.onOdds}>{I18n.t('odds')}</Button>
                                 </Col>
                                 <Col sm={{size: 4}}>
@@ -119,17 +118,17 @@ export default class ShowBet extends Component {
                 </Col>
                 <Col md={{size: 6}}>
                     <h1>{I18n.t('desc')}</h1>
-                    <p>{I18n.t('showDesc')}</p>
+                    <p>{I18n.t('placeDesc')}</p>
 
                     <h1>{I18n.t('suggested')}</h1>
-                    <p>{I18n.t('showSuggested')}</p>
+                    <p>{I18n.t('placeSuggested')}</p>
                 </Col>
             </Row>
         );
     }
 }
 
-ShowBet.propTypes = {
+PlaceBet.propTypes = {
     race: PropTypes.shape({
         id: PropTypes.number,
         name: PropTypes.string,

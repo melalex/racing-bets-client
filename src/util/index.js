@@ -79,7 +79,7 @@ function calcOdds(odds) {
         return [numerator / gcd, denominator / gcd];
     }
 
-    if (!odds) {
+    if (!odds.prizePool) {
         return null;
     }
 
