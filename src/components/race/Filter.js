@@ -21,8 +21,6 @@ export default class Filter extends Component {
         let date = this.date.state.inputValue;
         let name = this.raceName.value;
 
-        console.log(this);
-
         if (date) {
             filter.date = new Date(date).getTime();
         }

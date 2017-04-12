@@ -53,5 +53,4 @@ Sidebar.propTypes = {
     setRaceStatus: PropTypes.func.isRequired,
     isAuthenticated: PropTypes.bool.isRequired,
     close: PropTypes.func.isRequired,
-    redirectToBets: PropTypes.func.isRequired,
 };
