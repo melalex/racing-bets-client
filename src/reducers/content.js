@@ -10,6 +10,7 @@ const initialState = {
     content: [],
     count: 0,
     limit: 20,
+    contentType: actionConst.CONTENT_TYPE_RACE,
     params: {page: 1, status: SCHEDULED},
     fetching: false,
 };
@@ -28,6 +29,7 @@ export default function content(state = initialState, action) {
             return {
                 ...state,
                 fetching: false,
+                contentType: action.payload.contentType,
                 content: action.payload.content,
                 count: action.payload.count,
                 limit: action.payload.limit,

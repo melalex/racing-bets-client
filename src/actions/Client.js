@@ -8,7 +8,7 @@ import {API_ROOT} from  '../constants/Api'
 import {ajax} from 'jquery'
 import {push} from 'react-router-redux';
 import {basicAuthHeader, isExpired, getErrorsFromResponse, languageHeader} from "../util";
-import {requestBalance} from "./Bet"
+import {requestBalance, setBalance} from "./Bet"
 import jwtDecode from 'jwt-decode'
 
 function signIn(login, password) {
@@ -92,6 +92,7 @@ function signUp(account) {
                             refreshToken: token.refreshToken,
                         }
                     });
+                    dispatch(setBalance(0));
                     dispatch(push('/'));
                 }
             ],

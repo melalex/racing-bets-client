@@ -5,6 +5,7 @@
 import {ajax} from 'jquery'
 import {push} from 'react-router-redux';
 import {API_ROOT} from  '../constants/Api'
+import {CONTENT_TYPE_BET} from  '../constants/Content'
 import {refresh} from './Client'
 import * as betConst from '../constants/Bet'
 import * as appConst from '../constants/App'
@@ -113,6 +114,13 @@ function getOdds(bet) {
     }
 }
 
+function setBalance(amount) {
+    return {
+        type: betConst.SET_BALANCE,
+        payload: amount
+    }
+}
+
 function requestBalance(id) {
     return (dispatch, getState) => {
         ajax({
@@ -123,10 +131,7 @@ function requestBalance(id) {
             headers: bearerAuthHeader(getState),
             success: [
                 response => {
-                    dispatch({
-                        type: betConst.SET_BALANCE,
-                        payload: response.result[0].balance
-                    });
+                    dispatch(setBalance(response.result[0].balance));
                 }
             ],
             error: [
@@ -144,7 +149,7 @@ function requestBalance(id) {
 }
 
 function getBets(page) {
-    return getContent('/api/bet', {page: page})
+    return getContent(CONTENT_TYPE_BET, '/api/bet', {page: page})
 }
 
-export {makeBet, getOdds, getBets, requestBalance, goToBettingPage, clearOdds}
+export {makeBet, getOdds, getBets, requestBalance, goToBettingPage, clearOdds, setBalance}

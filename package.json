@@ -1,5 +1,6 @@
 {
   "name": "racing-bets-client",
+  "homepage": "http://localhost:8080/client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

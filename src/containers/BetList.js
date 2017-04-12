@@ -10,18 +10,19 @@ import {Table} from "reactstrap";
 import Pager from "../components/interface/Pager";
 import {I18n} from 'react-redux-i18n'
 import Bet from "../components/bet/Bet";
+import {CONTENT_TYPE_BET} from "../constants/Content";
 
-class RaceList extends React.Component {
+class BetList extends React.Component {
 
     componentDidMount() {
         this.props.getBets(1)
     }
 
     render() {
-        let {content, page, limit, count} = this.props;
+        let {content, page, limit, count, contentType} = this.props;
         let rows = content.map((entity, i) => <Bet key={i} entity={entity}/>);
         return (
-            rows.length === 0
+            rows.length === 0 || contentType !== CONTENT_TYPE_BET
                 ?
                 <h1 className="text-center no-result-text">{I18n.t('noResult')}</h1>
                 :
@@ -50,6 +51,7 @@ class RaceList extends React.Component {
 function mapStateToProps(state) {
     return {
         content: state.content.content,
+        contentType: state.content.contentType,
         page: state.content.params.page,
         count: state.content.count,
         limit: state.content.limit,
@@ -64,4 +66,4 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(RaceList)
+export default connect(mapStateToProps, mapDispatchToProps)(BetList)

@@ -12,6 +12,7 @@ import Pager from "../components/interface/Pager";
 import Race from "../components/race/Race";
 import Filter from "../components/race/Filter";
 import {FINISHED} from "../constants/Race"
+import {CONTENT_TYPE_RACE} from "../constants/Content";
 
 class RaceList extends React.Component {
     constructor(props) {
@@ -58,7 +59,7 @@ class RaceList extends React.Component {
     }
 
     render() {
-        let {content, params, limit, count, goToBettingPage} = this.props;
+        let {content, contentType, params, limit, count, goToBettingPage} = this.props;
 
         let rows = content.map((entity, i) => <Race key={i}
                                                     entity={entity}
@@ -70,7 +71,7 @@ class RaceList extends React.Component {
                 <Filter params={params} onFilter={this.onFilter}/>
 
                 {
-                    rows.length === 0 ? (
+                    rows.length === 0 || contentType !== CONTENT_TYPE_RACE ? (
                         <h1 className="text-center no-result-text">{I18n.t('noResult')}</h1>
                     ) : (
                         <div>
@@ -87,6 +88,7 @@ class RaceList extends React.Component {
 function mapStateToProps(state) {
     return {
         content: state.content.content,
+        contentType: state.content.contentType,
         params: state.content.params,
         count: state.content.count,
         limit: state.content.limit,

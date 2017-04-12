@@ -26,7 +26,7 @@ export default class Sidebar extends Component {
             <BurgerMenu id="sidebar" className="sidebar-wrapper">
                 <ul className="sidebar-nav">
                     <li className="sidebar-brand">
-                        <a href="/">Racing Bets</a>
+                        <Link to="/" onClick={e => this.props.close()}>Racing Bets</Link>
                     </li>
 
                     <li>

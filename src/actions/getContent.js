@@ -8,7 +8,7 @@ import {GET_REQUEST, GET_SUCCESS, GET_FAILED} from '../constants/Content'
 import {ERROR_MESSAGE} from '../constants/App'
 import {getErrorsFromResponse, bearerAuthHeader} from "../util";
 
-export default function get(path, params) {
+export default function get(type, path, params) {
     return (dispatch, getState) => {
         dispatch({
             type: GET_REQUEST,
@@ -29,7 +29,8 @@ export default function get(path, params) {
                         payload: {
                             count: response.count,
                             limit: response.limit,
-                            content: response.result
+                            content: response.result,
+                            contentType: type
                         }
                     })
                 }

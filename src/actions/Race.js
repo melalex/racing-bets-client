@@ -3,6 +3,7 @@
  */
 
 import {CHANGE_STATUS} from '../constants/Race'
+import {CONTENT_TYPE_RACE} from '../constants/Content'
 import getContent from './getContent'
 import {push} from 'react-router-redux'
 
@@ -18,7 +19,7 @@ function setRaceStatus(status) {
 }
 
 function getRaces(params) {
-    return getContent('/api/race', params)
+    return getContent(CONTENT_TYPE_RACE, '/api/race', params)
 }
 
 export {getRaces, setRaceStatus}
