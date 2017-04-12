@@ -113,10 +113,33 @@ function getOdds(bet) {
     }
 }
 
-function setBalance(id) {
-    return {
-        type: betConst.SET_BALANCE,
-        payload: id
+function requestBalance(id) {
+    return (dispatch, getState) => {
+        ajax({
+            type: 'GET',
+            url: API_ROOT + '/api/account/' + id,
+            crossDomain: true,
+            dataType: 'json',
+            headers: bearerAuthHeader(getState),
+            success: [
+                response => {
+                    dispatch({
+                        type: betConst.SET_BALANCE,
+                        payload: response.result[0].balance
+                    });
+                }
+            ],
+            error: [
+                response => {
+                    let errors = getErrorsFromResponse(response);
+
+                    dispatch({
+                        type: appConst.ERROR_MESSAGE,
+                        payload: errors
+                    })
+                }
+            ]
+        })
     }
 }
 
@@ -124,4 +147,4 @@ function getBets(page) {
     getContent('api/bet', {page: page})
 }
 
-export {makeBet, getOdds, getBets, setBalance, goToBettingPage, clearOdds}
+export {makeBet, getOdds, getBets, requestBalance, goToBettingPage, clearOdds}
