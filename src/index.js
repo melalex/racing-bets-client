@@ -7,13 +7,13 @@ import '../src/styles/App.css'
 import '../src/styles/DateTime.css'
 import '../src/styles/Sidebar.css'
 import configureStore from './store'
-import {Router, browserHistory} from 'react-router'
+import {Router, hashHistory} from 'react-router'
 import routes from "./routes"
 import {syncHistoryWithStore} from 'react-router-redux'
 import syncI18n from './i18n'
 
-const store = configureStore(browserHistory);
-const history = syncHistoryWithStore(browserHistory, store);
+const store = configureStore(hashHistory);
+const history = syncHistoryWithStore(hashHistory, store);
 
 syncI18n(store);
 
