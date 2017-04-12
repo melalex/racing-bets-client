@@ -4,6 +4,7 @@
 
 import React from 'react';
 import {connect} from "react-redux";
+import {push} from 'react-router-redux';
 import {bindActionCreators} from "redux";
 import {makeBet, getOdds, clearOdds} from "../actions/Bet";
 import {Nav, NavItem, NavLink, TabContent, TabPane} from "reactstrap";
@@ -16,6 +17,7 @@ class MakeBetPage extends React.Component {
         super(props);
 
         this.toggle = this.toggle.bind(this);
+        this.makeBet = this.makeBet.bind(this);
         this.state = {
             activeTab: '1'
         };
@@ -30,8 +32,16 @@ class MakeBetPage extends React.Component {
         }
     }
 
+    makeBet(bet) {
+        if (this.props.isAuthenticated) {
+            this.props.makeBet(bet)
+        } else {
+            this.props.dispatch(push('/login'));
+        }
+    }
+
     render() {
-        let {race, makeBet, getOdds, odds, id} = this.props;
+        let {race, getOdds, odds, id} = this.props;
         return (
             <div>
                 <Nav tabs>
@@ -80,7 +90,7 @@ class MakeBetPage extends React.Component {
                 </Nav>
                 <TabContent activeTab={this.state.activeTab}>
                     <TabPane tabId="1">
-                        <ShowBet race={race} getOdds={getOdds} makeBet={makeBet} odds={odds} id={id}/>
+                        <ShowBet race={race} getOdds={getOdds} makeBet={this.makeBet} odds={odds} id={id}/>
                     </TabPane>
                     <TabPane tabId="2">
 
@@ -111,7 +121,8 @@ function mapStateToProps(state) {
         race: state.bet.targetRace,
         odds: state.bet.odds,
         id: state.client.id,
-        language: state.app.language
+        isAuthenticated: state.client.isAuthenticated,
+        language: state.app.language,
     }
 }
 

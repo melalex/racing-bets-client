@@ -12,19 +12,19 @@ function fullName(person) {
 function basicAuthHeader(login, password, language) {
     return {
         'Authorization': 'Basic ' + window.btoa(login + ':' + password),
-        'Accept-Language' : language
+        'Accept-Language': language
     };
 }
 
 function bearerAuthHeader(getState) {
     return {
         'Authorization': 'Bearer ' + getState().client.accessToken,
-        'Accept-Language' : getState().app.language
+        'Accept-Language': getState().app.language
     };
 }
 
 function languageHeader(getState) {
-    return {'Accept-Language' : getState().app.language};
+    return {'Accept-Language': getState().app.language};
 }
 
 function nowSeconds() {
@@ -71,7 +71,21 @@ function calculateAge(birthday) {
 }
 
 function calcOdds(odds) {
-    return 'Odds';
+    function reduce(numerator, denominator) {
+        let gcd = function gcd(a, b) {
+            return b ? gcd(b, a % b) : a;
+        };
+        gcd = gcd(numerator, denominator);
+        return [numerator / gcd, denominator / gcd];
+    }
+
+    if (!odds) {
+        return null;
+    }
+
+    let num = odds.prizePool - odds.prizePool * odds.commission;
+    let den = odds.eventPool;
+    return reduce(num, den);
 }
 
 export {

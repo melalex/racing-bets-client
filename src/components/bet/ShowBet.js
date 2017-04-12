@@ -5,7 +5,7 @@
 
 import React, {PropTypes, Component} from 'react'
 import {I18n} from 'react-redux-i18n'
-import {Badge, Button, Col, Form, FormGroup, Input, Label, Row} from "reactstrap";
+import {Badge, Button, Col, FormGroup, Label, Row} from "reactstrap";
 import {calcOdds} from "../../util/index";
 import {AvField, AvForm, AvGroup} from "availity-reactstrap-validation";
 
@@ -44,8 +44,30 @@ export default class ShowBet extends Component {
         this.onSubmitClicked = false;
     }
 
-    static betFormForm(form) {
+    // SHOW("Show"),
+    // PLACE("Place"),
+    // WIN("Win"),
+    // QUINELLA("Quinella"),
+    // EXACTA("Exacta"),
+    // TRIFECTA("Trifecta"),
+    // SUPERFECTA("Superfecta");
 
+
+    static betFormForm(form) {
+        this.betSize = Number(form.betSize);
+        this.participant = Number(form.participant);
+
+        return {
+            raceId: this.props.race.id,
+            user: this.props.id,
+            betSize: this.betSize,
+            betType: 'Show',
+            participants: {
+                1: this.participant,
+                2: this.participant,
+                3: this.participant,
+            }
+        }
     }
 
     render() {
@@ -54,6 +76,8 @@ export default class ShowBet extends Component {
 
         let options = participants.map(e => <option key={e.id} value={e.id}>{e.horse.name}</option>);
 
+        let oddsFraction = calcOdds(odds);
+
         return (
             <Row className="big-margin-top big-margin-bot">
                 <Col md={{size: 6}}>
@@ -61,7 +85,7 @@ export default class ShowBet extends Component {
                         <AvGroup row>
                             <Label for="participant" sm={2}>{I18n.t('participant')}</Label>
                             <Col sm={10}>
-                                <AvField type="select" name="participant" required>
+                                <AvField type="select" name="participant" value={this.participant} required>
                                     <option>{}</option>
                                     {options}
                                 </AvField>
@@ -69,16 +93,22 @@ export default class ShowBet extends Component {
                         </AvGroup>
 
                         <AvGroup row>
-                            <Label for="amount" sm={2}>{I18n.t('betSize')}</Label>
+                            <Label for="betSize" sm={2}>{I18n.t('betSize')}</Label>
                             <Col sm={10}>
-                                <AvField type="number" name="amount" min={minBet} required/>
+                                <AvField type="number" name="betSize" min={minBet} value={this.betSize} required/>
                             </Col>
                         </AvGroup>
 
                         <FormGroup row>
                             <Label for="odds" sm={2}>{I18n.t('odds')}</Label>
                             <Col sm={10}>
-                                <Badge name="odds" color="success">{calcOdds(odds)}</Badge>
+                                {
+                                    oddsFraction ? (
+                                        <Badge name="odds" color="success">
+                                            {oddsFraction[0]}/{oddsFraction[1]}
+                                        </Badge>
+                                    ) : null
+                                }
                             </Col>
                         </FormGroup>
 
