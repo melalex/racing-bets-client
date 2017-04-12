@@ -88,6 +88,18 @@ function calcOdds(odds) {
     return reduce(num, den);
 }
 
+function isUnique(arr) {
+    let sorted_arr = arr.slice().sort();
+
+    for (let i = 0; i < arr.length - 1; i++) {
+        if (sorted_arr[i + 1] === sorted_arr[i]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
 export {
     calcOdds,
     fullName,
@@ -101,5 +113,6 @@ export {
     dateTimeFromTimestamp,
     getErrorsFromResponse,
     route,
-    calculateAge
+    calculateAge,
+    isUnique
 }

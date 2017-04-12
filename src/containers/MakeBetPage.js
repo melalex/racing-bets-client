@@ -5,6 +5,7 @@
 import React from 'react';
 import {connect} from "react-redux";
 import {push} from 'react-router-redux';
+import {error} from '../actions/App'
 import {bindActionCreators} from "redux";
 import {makeBet, getOdds, clearOdds} from "../actions/Bet";
 import {Nav, NavItem, NavLink, TabContent, TabPane} from "reactstrap";
@@ -47,49 +48,49 @@ class MakeBetPage extends React.Component {
     }
 
     render() {
-        let {race, getOdds, odds, id} = this.props;
+        let {race, getOdds, odds, id, error} = this.props;
         return (
             <div>
                 <Nav tabs>
                     <NavItem>
                         <NavLink className={classnames({active: this.state.activeTab === '1'})}
-                                 onClick={() => { this.toggle('1'); }}>
+                                 onClick={() => this.toggle('1')}>
                             Show
                         </NavLink>
                     </NavItem>
                     <NavItem>
                         <NavLink className={classnames({active: this.state.activeTab === '2'})}
-                                 onClick={() => { this.toggle('2'); }}>
+                                 onClick={() => this.toggle('2')}>
                             Place
                         </NavLink>
                     </NavItem>
                     <NavItem>
                         <NavLink className={classnames({active: this.state.activeTab === '3'})}
-                                 onClick={() => { this.toggle('3'); }}>
+                                 onClick={() => this.toggle('3')}>
                             Win
                         </NavLink>
                     </NavItem>
                     <NavItem>
                         <NavLink className={classnames({active: this.state.activeTab === '4'})}
-                                 onClick={() => { this.toggle('4'); }}>
+                                 onClick={() => this.toggle('4')}>
                             Quinella
                         </NavLink>
                     </NavItem>
                     <NavItem>
                         <NavLink className={classnames({active: this.state.activeTab === '5'})}
-                                 onClick={() => { this.toggle('5'); }}>
+                                 onClick={() => this.toggle('5')}>
                             Exacta
                         </NavLink>
                     </NavItem>
                     <NavItem>
                         <NavLink className={classnames({active: this.state.activeTab === '6'})}
-                                 onClick={() => { this.toggle('6'); }}>
+                                 onClick={() => this.toggle('6')}>
                             Trifecta
                         </NavLink>
                     </NavItem>
                     <NavItem>
                         <NavLink className={classnames({active: this.state.activeTab === '7'})}
-                                 onClick={() => { this.toggle('7'); }}>
+                                 onClick={() => this.toggle('7')}>
                             Superfecta
                         </NavLink>
                     </NavItem>
@@ -105,16 +106,20 @@ class MakeBetPage extends React.Component {
                         <WinBet race={race} getOdds={getOdds} makeBet={this.makeBet} odds={odds} id={id}/>
                     </TabPane>
                     <TabPane tabId="4">
-                        <QuinellaBet race={race} getOdds={getOdds} makeBet={this.makeBet} odds={odds} id={id}/>
+                        <QuinellaBet race={race} getOdds={getOdds} makeBet={this.makeBet} odds={odds} id={id}
+                                     error={error}/>
                     </TabPane>
                     <TabPane tabId="5">
-                        <ExactaBet race={race} getOdds={getOdds} makeBet={this.makeBet} odds={odds} id={id}/>
+                        <ExactaBet race={race} getOdds={getOdds} makeBet={this.makeBet} odds={odds} id={id}
+                                   error={error}/>
                     </TabPane>
                     <TabPane tabId="6">
-                        <TrifectaBet race={race} getOdds={getOdds} makeBet={this.makeBet} odds={odds} id={id}/>
+                        <TrifectaBet race={race} getOdds={getOdds} makeBet={this.makeBet} odds={odds} id={id}
+                                     error={error}/>
                     </TabPane>
                     <TabPane tabId="7">
-                        <SuperfectaBet race={race} getOdds={getOdds} makeBet={this.makeBet} odds={odds} id={id}/>
+                        <SuperfectaBet race={race} getOdds={getOdds} makeBet={this.makeBet} odds={odds} id={id}
+                                       error={error}/>
                     </TabPane>
                 </TabContent>
             </div>
@@ -138,6 +143,7 @@ function mapDispatchToProps(dispatch) {
         getOdds: bindActionCreators(getOdds, dispatch),
         clearOdds: bindActionCreators(clearOdds, dispatch),
         redirect: bindActionCreators(push, dispatch),
+        error: bindActionCreators(error, dispatch),
     }
 }
 

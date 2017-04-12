@@ -69,6 +69,7 @@ const translationsObject = {
         exactaSuggested: '$1 exacta box using three horses costs $6; $1 exacta box keying one horse with three horses costs $6',
         trifectaSuggested: '$1 trifecta keying one horse to win over three horses costs $6; $1 trifecta keying two horses to win over four horses costs $12',
         superfectaSuggested: '$1 superfecta keying one horse to win over four horses costs $24',
+        unique: 'Select different participants',
     },
     ru: {
         invalidResponse: 'Неверный формат ответа сервера',
@@ -133,6 +134,7 @@ const translationsObject = {
         exactaSuggested: '$1 exacta с тремя лошадьми стоит $ 6; $ 1 точная коробка с одним конем с тремя лошадьми стоит $ 6 ',
         trifectaSuggested: '$1 trifecta, вводящий одну лошадь, чтобы выиграть более трех лошадей, стоит 6 долларов; $ 1 trifecta keying две лошади, чтобы выиграть четыре лошади стоит $ 12 ',
         superfectaSuggested: '$1 superfecta вводя одну лошадь, чтобы выиграть более четырех лошадей стоит $ 24',
+        unique: 'Выберите разных участников',
     }
 };
 

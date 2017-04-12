@@ -6,7 +6,7 @@
 import React, {PropTypes, Component} from 'react'
 import {I18n} from 'react-redux-i18n'
 import {Badge, Button, Col, FormGroup, Label, Row} from "reactstrap";
-import {calcOdds} from "../../util/index";
+import {calcOdds, isUnique} from "../../util/index";
 import {AvField, AvForm, AvGroup} from "availity-reactstrap-validation";
 
 export default class QuinellaBet extends Component {
@@ -34,9 +34,21 @@ export default class QuinellaBet extends Component {
 
     handleForm(e, value) {
         if (this.onOddsClicked) {
-            this.props.getOdds(this.betFromForm(value));
+            let bet = this.betFromForm(value);
+
+            if (!isUnique([this.participant1, this.participant2])) {
+                this.props.error(I18n.t('unique'));
+            } else {
+                this.props.getOdds(bet);
+            }
         } else if (this.onSubmitClicked) {
-            this.props.makeBet(this.betFromForm(value));
+            let bet = this.betFromForm(value);
+
+            if (!isUnique([this.participant1, this.participant2])) {
+                this.props.error(I18n.t('unique'));
+            } else {
+                this.props.makeBet(bet);
+            }
         }
 
         this.onOddsClicked = false;
@@ -45,7 +57,8 @@ export default class QuinellaBet extends Component {
 
     betFromForm(form) {
         this.betSize = Number(form.betSize);
-        this.participant = Number(form.participant);
+        this.participant1 = Number(form.participant1);
+        this.participant2 = Number(form.participant2);
 
         return {
             raceId: this.props.race.id,
@@ -53,7 +66,8 @@ export default class QuinellaBet extends Component {
             betSize: this.betSize,
             betType: 'Quinella',
             participants: {
-                1: this.participant,
+                1: this.participant1,
+                2: this.participant2,
             }
         }
     }
@@ -71,9 +85,19 @@ export default class QuinellaBet extends Component {
                 <Col md={{size: 6}}>
                     <AvForm onValidSubmit={this.handleForm}>
                         <AvGroup row>
-                            <Label for="participant" sm={4}>{I18n.t('participant')}</Label>
+                            <Label for="participant1" sm={4}>{I18n.t('participant')} 1</Label>
                             <Col sm={8}>
-                                <AvField type="select" name="participant" value={this.participant} required>
+                                <AvField type="select" name="participant1" value={this.participant1} required>
+                                    <option>{}</option>
+                                    {options}
+                                </AvField>
+                            </Col>
+                        </AvGroup>
+
+                        <AvGroup row>
+                            <Label for="participant2" sm={4}>{I18n.t('participant')} 2</Label>
+                            <Col sm={8}>
+                                <AvField type="select" name="participant2" value={this.participant2} required>
                                     <option>{}</option>
                                     {options}
                                 </AvField>
@@ -155,5 +179,6 @@ QuinellaBet.propTypes = {
     id: PropTypes.number.isRequired,
     getOdds: PropTypes.func.isRequired,
     makeBet: PropTypes.func.isRequired,
-    odds: PropTypes.object
+    odds: PropTypes.object,
+    error: PropTypes.func.isRequired
 };
