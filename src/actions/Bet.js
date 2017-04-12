@@ -3,6 +3,7 @@
  */
 
 import {ajax} from 'jquery'
+import {push} from 'react-router-redux';
 import {API_ROOT} from  '../constants/Api'
 import {refresh} from './Client'
 import * as betConst from '../constants/Bet'
@@ -10,6 +11,22 @@ import * as appConst from '../constants/App'
 import {bearerAuthHeader, getErrorsFromResponse} from '../util/index'
 import getContent from './getContent'
 
+function goToBettingPage(race) {
+    return dispatch => {
+        dispatch({
+            type: betConst.SET_TARGET,
+            payload: race
+        });
+
+        dispatch(push('/betting'))
+    }
+}
+
+function clearOdds() {
+    return {
+        type: betConst.CLEAR_ODDS
+    }
+}
 
 function makeBet(bet) {
     return refresh((dispatch, getState)=> {
@@ -96,10 +113,10 @@ function getOdds(bet) {
     }
 }
 
-function setBalance(balance) {
+function setBalance(id) {
     return {
         type: betConst.SET_BALANCE,
-        payload: balance
+        payload: id
     }
 }
 
@@ -107,4 +124,4 @@ function getBets(page) {
     getContent('api/bet', {page: page})
 }
 
-export {makeBet, getOdds, getBets, setBalance}
+export {makeBet, getOdds, getBets, setBalance, goToBettingPage, clearOdds}

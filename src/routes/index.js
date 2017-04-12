@@ -10,6 +10,7 @@ import Login from "../containers/Login";
 import Register from "../containers/Register";
 import RaceList from "../containers/RaceList";
 import BetList from "../containers/BetList";
+import MakeBetPage from "../containers/MakeBetPage";
 
 export default (
     <div>
@@ -17,6 +18,7 @@ export default (
             <IndexRoute component={RaceList}/>
 
             <Route path="/bets" component={BetList}/>
+            <Route path="/betting" component={MakeBetPage}/>
             <Route path="/login" component={Login}/>
             <Route path="/register" component={Register}/>
         </Route>

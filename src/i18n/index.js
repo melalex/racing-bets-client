@@ -51,6 +51,23 @@ const translationsObject = {
         text404: 'Sorry, but the page you are looking for was either not found or does not exist. <br/>'
         + ' Try refreshing the page or click the button below to go back to the Homepage.',
         home404: 'Go to App',
+        makeBet: 'Make bet',
+        desc: 'Description',
+        showDesc: 'Your horse must finish 1st, 2nd, or 3rd; modest payoffs',
+        placeDesc: 'Your horse must finish 1st or 2nd; payoffs better than to show',
+        winDesc: 'Your horse must finish 1st; payoff determined by the win odds',
+        quinellaDesc: 'Your horses must finish 1st and 2nd in either order; a normal play is to box three horses',
+        exactaDesc: "Your horses must finish 1st and 2nd in exact order; riskier bet that can pay a little or a lot, depending on the horses’ odds",
+        trifectaDesc: 'Your horses must finish 1st, 2nd, and 3rd in exact order; can be expensive to play if you use a lot of horses',
+        superfectaDesc: 'Your horses must finish 1st, 2nd, 3rd, and 4th; hard to bet unless you have a sizeable bankroll; big payoff possible',
+        suggested: 'Suggested Plays (Based upon a $100 Bankroll)',
+        showSuggested: '$6 per horse',
+        placeSuggested: '$5 per horse',
+        winSuggested: '$4 per horse',
+        quinellaSuggested: '$2 quinella box using three horses costs $6',
+        exactaSuggested: '$1 exacta box using three horses costs $6; $1 exacta box keying one horse with three horses costs $6',
+        trifectaSuggested: '$1 trifecta keying one horse to win over three horses costs $6; $1 trifecta keying two horses to win over four horses costs $12',
+        superfectaSuggested: '$1 superfecta keying one horse to win over four horses costs $24',
     },
     ru: {
         invalidResponse: 'Неверный формат ответа сервера',
@@ -97,7 +114,7 @@ const translationsObject = {
         text404: 'Извините, но страница, которую вы ищете, либо не найдена, либо не существует. <br/>'
         + ' Попробуйте обновить страницу или нажмите кнопку ниже, чтобы вернуться на главную страницу.',
         home404: 'Вернуться на главную',
-
+        makeBet: 'Сделать ставку',
     }
 };
 

@@ -70,7 +70,12 @@ function calculateAge(birthday) {
     return now - birthYear;
 }
 
+function calcOdds(odds) {
+    return 'Odds';
+}
+
 export {
+    calcOdds,
     fullName,
     basicAuthHeader,
     bearerAuthHeader,

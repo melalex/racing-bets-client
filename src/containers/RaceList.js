@@ -6,6 +6,7 @@ import React from 'react'
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import {getRaces} from "../actions/Race";
+import {goToBettingPage} from "../actions/Bet";
 import {I18n} from 'react-redux-i18n'
 import Pager from "../components/interface/Pager";
 import Race from "../components/race/Race";
@@ -57,12 +58,13 @@ class RaceList extends React.Component {
     }
 
     render() {
-        let {content, params, limit, count} = this.props;
+        let {content, params, limit, count, goToBettingPage} = this.props;
 
         let rows = content.map((entity, i) => <Race key={i}
                                                     entity={entity}
                                                     onGetByParticipant={this.onGetByParticipant}
-                                                    onFilter={this.onFilter}/>);
+                                                    onFilter={this.onFilter}
+                                                    onBetting={goToBettingPage}/>);
         return (
             <div className="table-margin">
                 <Filter params={params} onFilter={this.onFilter}/>
@@ -95,6 +97,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
     return {
         getRaces: bindActionCreators(getRaces, dispatch),
+        goToBettingPage: bindActionCreators(goToBettingPage, dispatch),
     }
 }
 

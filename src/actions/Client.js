@@ -9,7 +9,7 @@ import {ajax} from 'jquery'
 import {push} from 'react-router-redux';
 import {basicAuthHeader, isExpired, getErrorsFromResponse, languageHeader} from "../util";
 import {setBalance} from "./Bet"
-
+import jwtDecode from 'jwt-decode'
 
 function signIn(login, password) {
     return(dispatch, getState) => {
@@ -32,9 +32,12 @@ function signIn(login, password) {
             success: [
                 response => {
                     let token = response.result[0];
+                    console.log(jwtDecode(token.accessToken));
+                    let id = jwtDecode(token.accessToken).sub;
                     dispatch({
                         type: clientConst.LOGIN_SUCCESS,
                         payload: {
+                            id: id,
                             tokenType: token.tokenType,
                             accessToken: token.accessToken,
                             expiresIn: token.expiresIn,
@@ -42,7 +45,7 @@ function signIn(login, password) {
                         }
                     });
                     dispatch(push('/'));
-                    dispatch(setBalance(token.balance))
+                    dispatch(setBalance(id))
                 }
             ],
             error: [
