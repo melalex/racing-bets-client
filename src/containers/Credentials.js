@@ -6,7 +6,7 @@ import React from 'react'
 import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import {signOut} from '../actions/Client'
-import {Button, Col, Nav, NavItem, Row,} from "reactstrap";
+import {Button, Col, Nav, NavItem, NavLink, Row,} from "reactstrap";
 import {I18n} from 'react-redux-i18n'
 import {} from '../components/interface/LanguagePicker'
 import LanguagePicker from "../components/interface/LanguagePicker";
@@ -22,11 +22,15 @@ class Credentials extends React.Component {
                     <NavItem>
                         <Row>
                             <LanguagePicker language={language} changeLanguage={changeLanguage}/>
-                            <Col md={{size: 2, offset: 1}}>
-                                <p className="navbar-text">{login}</p>
+                            <Col md={{size: 2, offset: 2}}>
+                                <NavItem>
+                                    <NavLink disabled>{login}</NavLink>
+                                </NavItem>
                             </Col>
-                            <Col md={{size: 2, offset: 1}}>
-                                <p className="navbar-text">{I18n.t('balance')} {balance}</p>
+                            <Col md={{size: 2}}>
+                                <NavItem>
+                                    <NavLink disabled>{I18n.t('balance')} {balance}</NavLink>
+                                </NavItem>
                             </Col>
                             <Col md={{size: 2, offset: 1}}>
                                 <Button outline color="danger" onClick={signOut}>
