@@ -27,12 +27,12 @@ class Credentials extends React.Component {
                                     <NavLink disabled>{login}</NavLink>
                                 </NavItem>
                             </Col>
-                            <Col md={{size: 2}}>
+                            <Col md={{size: 3}}>
                                 <NavItem>
                                     <NavLink disabled>{I18n.t('balance')} {balance}</NavLink>
                                 </NavItem>
                             </Col>
-                            <Col md={{size: 2, offset: 1}}>
+                            <Col md={{size: 2}}>
                                 <Button outline color="danger" onClick={signOut}>
                                     {I18n.t('logout')}
                                 </Button>

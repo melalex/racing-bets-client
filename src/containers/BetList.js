@@ -25,7 +25,7 @@ class RaceList extends React.Component {
                 ?
                 <h1 className="text-center no-result-text">{I18n.t('noResult')}</h1>
                 :
-                <div className="table-margin">
+                <div className="table-margin big-margin-bot">
                     <Table hover>
                         <thead>
                         <tr>
@@ -53,7 +53,8 @@ function mapStateToProps(state) {
         page: state.content.params.page,
         count: state.content.count,
         limit: state.content.limit,
-        fetching: state.content.fetching
+        fetching: state.content.fetching,
+        language: state.app.language
     }
 }
 

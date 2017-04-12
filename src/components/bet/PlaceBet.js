@@ -93,11 +93,11 @@ export default class PlaceBet extends Component {
                             <Col sm={8}>
                                 {
                                     oddsFraction ? (
-                                        <Label>
+                                        <h4>
                                             <Badge name="odds" color="success">
                                                 {oddsFraction[0]}/{oddsFraction[1]}
                                             </Badge>
-                                        </Label>
+                                        </h4>
                                     ) : null
                                 }
                             </Col>

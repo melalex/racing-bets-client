@@ -17,6 +17,7 @@ class RaceList extends React.Component {
     constructor(props) {
         super(props);
 
+        this.count = 0;
         this.onFilter = this.onFilter.bind(this);
         this.onGetPage = this.onGetPage.bind(this);
         this.onGetByParticipant = this.onGetByParticipant.bind(this);
@@ -28,7 +29,8 @@ class RaceList extends React.Component {
 
     componentWillReceiveProps(nextProps) {
         if (!RaceList.isParamsEquals(nextProps.params, this.props.params)) {
-            this.props.getRaces(nextProps.params)
+            this.props.getRaces(nextProps.params);
+            this.count++;
         }
     }
 
@@ -44,7 +46,7 @@ class RaceList extends React.Component {
     }
 
     onFilter(params) {
-        this.props.getRaces({...params, page: 1, status: this.props.raceStatus});
+        this.props.getRaces({...params, page: 1, status: this.props.params.status});
     }
 
     onGetPage(page) {

@@ -50,7 +50,7 @@ const translationsObject = {
         trainer: 'Trainer',
         odds: 'Odds',
         header404: "We couldn't find the page..",
-        text404: 'Sorry, but the page you are looking for was either not found or does not exist. <br/>'
+        text404: 'Sorry, but the page you are looking for was either not found or does not exist.'
         + ' Try refreshing the page or click the button below to go back to the Homepage.',
         home404: 'Go to App',
         makeBet: 'Make bet',
@@ -116,7 +116,7 @@ const translationsObject = {
         trainer: 'Тренер',
         odds: 'Коэффициенты',
         header404: 'Не удалось найти страницу ..',
-        text404: 'Извините, но страница, которую вы ищете, либо не найдена, либо не существует. <br/>'
+        text404: 'Извините, но страница, которую вы ищете, либо не найдена, либо не существует.'
         + ' Попробуйте обновить страницу или нажмите кнопку ниже, чтобы вернуться на главную страницу.',
         home404: 'Вернуться на главную',
         makeBet: 'Сделать ставку',
@@ -128,7 +128,7 @@ const translationsObject = {
         exactaDesc: 'Ваши лошади должны закончить 1-й и 2-й в точном порядке, более рискованные ставки, которые могут заплатить немного или много, в зависимости от шансов лошадей',
         trifectaDesc: 'Ваши лошади должны закончить 1, 2 и 3 в точном порядке; Может быть дорогим играть, если вы используете много лошадей',
         superfectaDesc: 'Ваши лошади должны финишировать 1, 2, 3 и 4; Трудно делать ставки, если у вас нет значительного банкролла; Возможно большое вознаграждение ',
-        suggested: 'Предлагаемые пьесы (на основе банкролла в размере 100 долларов США)',
+        suggested: 'Предлагаемый профит (на основе банкролла в размере 100 долларов США)',
         showSuggested: '$6 за лошадь',
         placeSuggested: '$5 за лошадь',
         winSuggested: '$4 за лошадь',

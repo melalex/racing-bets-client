@@ -3,11 +3,10 @@
  */
 
 import React, {PropTypes, Component} from 'react'
-import {Col, Form, Input, Button, Row, Container} from "reactstrap";
+import {Col, Form, Button, Row, Container} from "reactstrap";
 import {I18n} from 'react-redux-i18n'
 import DateTimePicker from 'react-datetime'
 
-// /api/race?status=%s&racecourse=%d&horse=%d&trainer=%d&jockey=%d&name=%s&date=%d&page=%d
 
 export default class Filter extends Component {
 
@@ -18,10 +17,21 @@ export default class Filter extends Component {
     }
 
     onSubmit() {
-        this.props.onFilter({
-            date: new Date(this.date.state.inputValue).getTime(),
-            name: this.raceName.value
-        });
+        let filter = {};
+        let date = this.date.state.inputValue;
+        let name = this.raceName.value;
+
+        console.log(this);
+
+        if (date) {
+            filter.date = new Date(date).getTime();
+        }
+
+        if (name) {
+            filter.name = name;
+        }
+
+        this.props.onFilter(filter);
     }
 
     render() {
@@ -33,9 +43,9 @@ export default class Filter extends Component {
                         <Form inline>
                             <Row>
                                 <Col md={{size: 2, offset: 1}}>
-                                    <Input name="raceName"
+                                    <input name="raceName"
                                            ref={input => this.raceName = input}
-                                           value={name}
+                                           defaultValue={name}
                                            placeholder={I18n.t('raceName')}/>
                                 </Col>
 

@@ -80,13 +80,17 @@ function calcOdds(odds) {
         return [numerator / gcd, denominator / gcd];
     }
 
-    if (!odds.prizePool) {
+    if (odds.prizePool === undefined) {
         return null;
     }
 
     let num = odds.prizePool - odds.prizePool * odds.commission;
     let den = odds.eventPool;
-    return reduce(num, den);
+    if (odds.eventPool !== 0) {
+        return reduce(num, den);
+    } else {
+        return [num, den];
+    }
 }
 
 function isUnique(arr) {

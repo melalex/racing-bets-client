@@ -81,9 +81,11 @@ function signUp(account) {
             success: [
                 response => {
                     let token = response.result[0];
+                    let id = jwtDecode(token.accessToken).sub;
                     dispatch({
                         type: clientConst.REGISTER_SUCCESS,
                         payload: {
+                            id: id,
                             tokenType: token.tokenType,
                             accessToken: token.accessToken,
                             expiresIn: token.expiresIn,
@@ -136,9 +138,11 @@ function refresh(next) {
                 success: [
                     response => {
                         let token = response.result[0];
+                        let id = jwtDecode(token.accessToken).sub;
                         dispatch({
                             type: clientConst.REFRESH_SUCCESS,
                             payload: {
+                                id: id,
                                 tokenType: token.tokenType,
                                 accessToken: token.accessToken,
                                 expiresIn: token.expiresIn,
