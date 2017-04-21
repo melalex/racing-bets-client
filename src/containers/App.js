@@ -13,6 +13,9 @@ import {requestBalance} from "../actions/Bet";
 class App extends Component {
 
     componentDidMount() {
+        if (this.props.isOpen) {
+            this.props.toggleMenu(false)
+        }
         if (this.props.isAuthenticated) {
             this.props.requestBalance(this.props.id)
         }
@@ -24,7 +27,7 @@ class App extends Component {
             <div className="wrapper">
                 <Sidebar setRaceStatus={setRaceStatus}
                          isAuthenticated={isAuthenticated}
-                         close={() => toggleMenu({isOpen: false})}/>
+                         close={() => toggleMenu(false)}/>
 
                 <Header/>
                 <Progress.Component/>
@@ -48,7 +51,8 @@ function mapStateToProps(state) {
         errors: state.app.errors,
         info: state.app.info,
         language: state.app.language,
-        isAuthenticated: state.client.isAuthenticated
+        isAuthenticated: state.client.isAuthenticated,
+        isOpen: state.burgerMenu.isOpen
     }
 }
 
