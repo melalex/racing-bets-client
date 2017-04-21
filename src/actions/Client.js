@@ -7,9 +7,8 @@ import * as appConst from '../constants/App'
 import {API_ROOT} from  '../constants/Api'
 import {ajax} from 'jquery'
 import {push} from 'react-router-redux';
-import {basicAuthHeader, isExpired, getErrorsFromResponse, languageHeader} from "../util";
+import {basicAuthHeader, isExpired, getErrorsFromResponse, languageHeader, getIdFromJwt} from "../util";
 import {requestBalance, setBalance} from "./Bet"
-import jwtDecode from 'jwt-decode'
 
 function signIn(login, password) {
     return(dispatch, getState) => {
@@ -32,7 +31,7 @@ function signIn(login, password) {
             success: [
                 response => {
                     let token = response.result[0];
-                    let id = jwtDecode(token.accessToken).sub;
+                    let id = getIdFromJwt(token);
                     dispatch({
                         type: clientConst.LOGIN_SUCCESS,
                         payload: {
@@ -81,7 +80,7 @@ function signUp(account) {
             success: [
                 response => {
                     let token = response.result[0];
-                    let id = jwtDecode(token.accessToken).sub;
+                    let id = getIdFromJwt(token);
                     dispatch({
                         type: clientConst.REGISTER_SUCCESS,
                         payload: {
@@ -139,7 +138,7 @@ function refresh(next) {
                 success: [
                     response => {
                         let token = response.result[0];
-                        let id = jwtDecode(token.accessToken).sub;
+                        let id = getIdFromJwt(token);
                         dispatch({
                             type: clientConst.REFRESH_SUCCESS,
                             payload: {

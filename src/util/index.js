@@ -4,6 +4,7 @@
 
 import dateformat from 'dateformat'
 import {I18n} from 'react-redux-i18n'
+import jwtDecode from 'jwt-decode'
 
 function fullName(person) {
     return (person === undefined) ? null : person.firstName + ' ' + person.lastName;
@@ -103,6 +104,10 @@ function isUnique(arr) {
     return true;
 }
 
+function getIdFromJwt(jwt) {
+    return jwtDecode(jwt.accessToken).sub;
+}
+
 export {
     calcOdds,
     fullName,
@@ -117,5 +122,6 @@ export {
     getErrorsFromResponse,
     route,
     calculateAge,
-    isUnique
+    isUnique,
+    getIdFromJwt,
 }

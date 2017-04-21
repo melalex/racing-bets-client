@@ -3,7 +3,7 @@
  */
 
 
-const APP_USER_KEY = 'app-user';
+const APP_USER_KEY = 'app-client';
 
 const LOGIN_REQUEST = 'LOGIN_REQUEST';
 const LOGIN_SUCCESS = 'LOGIN_SUCCESS';

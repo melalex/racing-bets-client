@@ -35,6 +35,9 @@ export default class Sidebar extends Component {
                     <li>
                         <a href="#" onClick={e => this.onStatusChange(e, FINISHED)}>{I18n.t('finished')}</a>
                     </li>
+                    <li>
+                        <Link to="/gallery" onClick={e => this.props.close()}>{I18n.t('gallery')}</Link>
+                    </li>
 
                     {
                         this.props.isAuthenticated ? (
