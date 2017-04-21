@@ -33,7 +33,6 @@ class App extends Component {
                 <Progress.Component/>
 
                 <div className="container big-margin-top content">
-
                     <Notifications errors={errors} info={info}/>
 
                     {this.props.children}

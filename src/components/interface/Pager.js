@@ -114,41 +114,39 @@ export default class Pager extends Component {
         let pageCount = Math.ceil(count / limit);
         return (
             pageCount > 1 ? (
-                <Row>
-                    <Col sm={{size: 6, push: 2, pull: 2, offset: 1}}>
-                        <Pagination>
-                            {page !== 1 ? (
-                                <PaginationItem key={0}>
-                                    <PaginationLink previous onClick={e => this.goToPage(e, page - 1)}/>
-                                </PaginationItem>
-                            ) : (
-                                <PaginationItem disabled key={0}>
-                                    <PaginationLink previous/>
-                                </PaginationItem>
-                            )}
+                <div className="text-center text-md-center text-xs-center pagination-centered">
+                    <Pagination className="pagination-centered">
+                        {page !== 1 ? (
+                            <PaginationItem key={0}>
+                                <PaginationLink previous onClick={e => this.goToPage(e, page - 1)}/>
+                            </PaginationItem>
+                        ) : (
+                            <PaginationItem disabled key={0}>
+                                <PaginationLink previous/>
+                            </PaginationItem>
+                        )}
 
-                            {pageCount < 10 ? (
-                                this.getPagesLinks(page, 1, pageCount)
+                        {pageCount < 10 ? (
+                            this.getPagesLinks(page, 1, pageCount)
+                        ) : (
+                            (page < 5) || (page > (pageCount - 4)) ? (
+                                this.getPagesWhileCurrentOnSide(page, pageCount)
                             ) : (
-                                (page < 5) || (page > (pageCount - 4)) ? (
-                                    this.getPagesWhileCurrentOnSide(page, pageCount)
-                                ) : (
-                                    this.getPagesWhileCurrentInCenter(page, pageCount)
-                                )
-                            )}
+                                this.getPagesWhileCurrentInCenter(page, pageCount)
+                            )
+                        )}
 
-                            {page !== pageCount ? (
-                                <PaginationItem key={pageCount + 1}>
-                                    <PaginationLink next onClick={e => this.goToPage(e, page + 1)}/>
-                                </PaginationItem>
-                            ) : (
-                                <PaginationItem disabled key={pageCount + 1}>
-                                    <PaginationLink next/>
-                                </PaginationItem>
-                            )}
-                        </Pagination>
-                    </Col>
-                </Row>
+                        {page !== pageCount ? (
+                            <PaginationItem key={pageCount + 1}>
+                                <PaginationLink next onClick={e => this.goToPage(e, page + 1)}/>
+                            </PaginationItem>
+                        ) : (
+                            <PaginationItem disabled key={pageCount + 1}>
+                                <PaginationLink next/>
+                            </PaginationItem>
+                        )}
+                    </Pagination>
+                </div>
             ) : (
                 null
             )

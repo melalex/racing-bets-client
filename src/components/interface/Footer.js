@@ -3,13 +3,22 @@
  */
 
 import React from 'react'
+import Share from './Share'
+import {Col, Row} from "reactstrap";
 
-export default class LanguagePicker extends React.Component {
+export default class extends React.Component {
     render() {
         return (
             <footer className="footer">
                 <div className="container">
-                    <span className="text-muted">&copy; Melashchenko, 2017</span>
+                    <Row>
+                        <Col md={{size: 8}}>
+                            <span className="text-muted">&copy; Melashchenko, 2017</span>
+                        </Col>
+                        <Col md={{size: 4}}>
+                            <Share/>
+                        </Col>
+                    </Row>
                 </div>
             </footer>
         )

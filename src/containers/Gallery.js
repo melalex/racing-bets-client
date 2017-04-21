@@ -14,7 +14,7 @@ export default class extends React.Component {
             galleryItems.push(<GalleryItem key={i} src="http://placehold.it/400x300"/>);
         }
         return (
-            <Row>
+            <Row className="big-margin-bot">
                 <Col lg={{size: 12}}>
                     <h1 className="page-header">Thumbnail Gallery</h1>
                 </Col>
