@@ -38,6 +38,9 @@ export default class Sidebar extends Component {
                     <li>
                         <Link to="/gallery" onClick={e => this.props.close()}>{I18n.t('gallery')}</Link>
                     </li>
+                    <li>
+                        <Link to="/about" onClick={e => this.props.close()}>{I18n.t('about')}</Link>
+                    </li>
 
                     {
                         this.props.isAuthenticated ? (

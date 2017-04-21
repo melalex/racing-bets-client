@@ -12,6 +12,7 @@ import RaceList from "../containers/RaceList";
 import BetList from "../containers/BetList";
 import MakeBetPage from "../containers/MakeBetPage";
 import Gallery from "../containers/Gallery";
+import AboutUsPage from "../containers/AboutUsPage";
 
 export default (
     <div>
@@ -24,6 +25,7 @@ export default (
             <Route path="/register" component={Register}/>
             <Route path="/gallery" component={Gallery}/>
         </Route>
+        <Route path="/about" component={AboutUsPage}/>
         <Route path='*' component={NotFound}/>
     </div>
 );

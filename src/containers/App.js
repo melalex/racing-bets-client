@@ -9,7 +9,6 @@ import {bindActionCreators} from "redux";
 import {setRaceStatus} from '../actions/Race'
 import {action as toggleMenu} from 'redux-burger-menu';
 import {requestBalance} from "../actions/Bet";
-import Carousel from "../components/interface/Carousel";
 
 class App extends Component {
 
@@ -30,9 +29,7 @@ class App extends Component {
                 <Header/>
                 <Progress.Component/>
 
-
                 <div className="container big-margin-top content">
-                    <Carousel/>
 
                     <Notifications errors={errors} info={info}/>
 
