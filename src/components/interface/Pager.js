@@ -114,8 +114,8 @@ export default class Pager extends Component {
         let pageCount = Math.ceil(count / limit);
         return (
             pageCount > 1 ? (
-                <div className="text-center text-md-center text-xs-center pagination-centered">
-                    <Pagination className="pagination-centered">
+                <div className="text-xs-center">
+                    <Pagination>
                         {page !== 1 ? (
                             <PaginationItem key={0}>
                                 <PaginationLink previous onClick={e => this.goToPage(e, page - 1)}/>

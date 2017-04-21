@@ -13,6 +13,7 @@ import {action as toggleMenu} from 'redux-burger-menu';
 import {setRaceStatus} from '../actions/Race'
 import GoogleMap from 'google-map-react';
 import img4 from '../media/img/img4.jpg'
+import {LOCATION, ZOOM, MAP_API_KEY} from '../constants/Map'
 
 class Marker extends React.Component {
     render() {
@@ -33,13 +34,6 @@ class About extends React.Component {
             this.props.toggleMenu(false)
         }
     }
-
-    static defaultProps = {
-        center: {lat: 50.449744, lng: 30.44995},
-        apiKey: 'AIzaSyDuFF-9TY8VFcE6uXOhhQT1KtWgNhwMoSc',
-        zoom: 12,
-        placeCoords: {lat: 50.449744, lng: 30.44995}
-    };
 
     render() {
         let {setRaceStatus, toggleMenu, isAuthenticated} = this.props;
@@ -85,10 +79,10 @@ class About extends React.Component {
                     <h1>Our location</h1>
                     <div className="map">
                         <GoogleMap
-                            bootstrapURLKeys={{key: this.props.apiKey}}
-                            defaultCenter={this.props.center}
-                            defaultZoom={this.props.zoom}>
-                            <Marker {...this.props.placeCoords}/>
+                            bootstrapURLKeys={{key: MAP_API_KEY}}
+                            defaultCenter={LOCATION}
+                            defaultZoom={ZOOM}>
+                            <Marker {...LOCATION}/>
                         </GoogleMap>
                     </div>
                 </div>
