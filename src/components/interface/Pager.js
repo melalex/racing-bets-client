@@ -3,7 +3,7 @@
  */
 
 import React, {PropTypes, Component} from 'react'
-import {Pagination, PaginationItem, PaginationLink, Row, Col} from 'reactstrap';
+import {Pagination, PaginationItem, PaginationLink} from 'reactstrap';
 
 export default class Pager extends Component {
     constructor(props) {
@@ -114,39 +114,37 @@ export default class Pager extends Component {
         let pageCount = Math.ceil(count / limit);
         return (
             pageCount > 1 ? (
-                <div className="text-xs-center">
-                    <Pagination>
-                        {page !== 1 ? (
-                            <PaginationItem key={0}>
-                                <PaginationLink previous onClick={e => this.goToPage(e, page - 1)}/>
-                            </PaginationItem>
-                        ) : (
-                            <PaginationItem disabled key={0}>
-                                <PaginationLink previous/>
-                            </PaginationItem>
-                        )}
+                <Pagination className="justify-content-center">
+                    {page !== 1 ? (
+                        <PaginationItem key={0}>
+                            <PaginationLink previous onClick={e => this.goToPage(e, page - 1)}/>
+                        </PaginationItem>
+                    ) : (
+                        <PaginationItem disabled key={0}>
+                            <PaginationLink previous/>
+                        </PaginationItem>
+                    )}
 
-                        {pageCount < 10 ? (
-                            this.getPagesLinks(page, 1, pageCount)
+                    {pageCount < 10 ? (
+                        this.getPagesLinks(page, 1, pageCount)
+                    ) : (
+                        (page < 5) || (page > (pageCount - 4)) ? (
+                            this.getPagesWhileCurrentOnSide(page, pageCount)
                         ) : (
-                            (page < 5) || (page > (pageCount - 4)) ? (
-                                this.getPagesWhileCurrentOnSide(page, pageCount)
-                            ) : (
-                                this.getPagesWhileCurrentInCenter(page, pageCount)
-                            )
-                        )}
+                            this.getPagesWhileCurrentInCenter(page, pageCount)
+                        )
+                    )}
 
-                        {page !== pageCount ? (
-                            <PaginationItem key={pageCount + 1}>
-                                <PaginationLink next onClick={e => this.goToPage(e, page + 1)}/>
-                            </PaginationItem>
-                        ) : (
-                            <PaginationItem disabled key={pageCount + 1}>
-                                <PaginationLink next/>
-                            </PaginationItem>
-                        )}
-                    </Pagination>
-                </div>
+                    {page !== pageCount ? (
+                        <PaginationItem key={pageCount + 1}>
+                            <PaginationLink next onClick={e => this.goToPage(e, page + 1)}/>
+                        </PaginationItem>
+                    ) : (
+                        <PaginationItem disabled key={pageCount + 1}>
+                            <PaginationLink next/>
+                        </PaginationItem>
+                    )}
+                </Pagination>
             ) : (
                 null
             )
